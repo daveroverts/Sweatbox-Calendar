@@ -40,7 +40,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="timeBegin" class="col-md-4 col-form-label text-md-right">Begin</label>
+                                <label for="timeBegin" class="col-md-4 col-form-label text-md-right">Begin (UTC)</label>
 
                                 <div class="col-md-6">
                                     <input id="timeBegin" type="time" class="form-control{{ $errors->has('timeEnd') ? ' is-invalid' : '' }}" name="timeBegin" value="{{ old('timeBegin') }}" required autofocus>
@@ -54,7 +54,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="timeEnd" class="col-md-4 col-form-label text-md-right">End</label>
+                                <label for="timeEnd" class="col-md-4 col-form-label text-md-right">End (UTC)</label>
 
                                 <div class="col-md-6">
                                     <input id="timeBegin" type="time" class="form-control{{ $errors->has('timeEnd') ? ' is-invalid' : '' }}" name="timeEnd" value="{{ old('timeEnd') }}" required autofocus>
