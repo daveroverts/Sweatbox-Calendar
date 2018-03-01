@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return ('Under construction, please come back later');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
