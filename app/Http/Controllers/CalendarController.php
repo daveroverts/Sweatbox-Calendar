@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Session;
 Use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class CalendarController extends Controller
 {
@@ -37,11 +39,21 @@ class CalendarController extends Controller
      */
     public function store(Request $request)
     {
+
+        try {
+            Validator::make($request->all(), [
+                'date' => 'required|date:after_or_equal:today',
+                'begin' => 'required|time|after:now',
+                'end' => 'required:time:after:begin',
+            ])->validate();
+        } catch (ValidationException $e) {
+        }
         $session = new Session();
-        $session->mentor = Auth::id();
+        $session->user_id = Auth::id();
         $session->student = $request->student;
-        $session->begin = $request->begin;
-        $session->end = $request->end;
+        $session->date = $request->date;
+        $session->begin = $request->timeBegin;
+        $session->end = $request->timeEnd;
         $session->description = $request->description;
         $session->save();
         return redirect('/calendar');
@@ -85,10 +97,11 @@ class CalendarController extends Controller
     {
         if (isset($_POST['delete'])){
             $session->delete();
-            return('/calendar');
+            return view('/calendar');
         }
         else{
             $session->student = $request->student;
+            $session->date = $request->date;
             $session->begin = $request->begin;
             $session->end = $request->end;
             $session->description = $request->description;
