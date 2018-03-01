@@ -17,8 +17,9 @@ class CreateSessionsTable extends Migration
             $table->increments('id');
             $table->integer('mentor')->unsigned()->index();
             $table->integer('student')->unsigned()->index();
-            $table->dateTime('begin');
-            $table->dateTime('end');
+            $table->date('date');
+            $table->time('begin');
+            $table->time('end');
             $table->text('description');
             $table->timestamps();
         });
