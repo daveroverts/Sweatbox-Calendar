@@ -40,7 +40,21 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                            <label for="vatsim_id" class="col-md-4 col-form-label text-md-right">Vatsim ID</label>
+
+                            <div class="col-md-6">
+                                <input id="vatsim_id" type="text" class="form-control{{ $errors->has('vatsim_id') ? ' is-invalid' : '' }}" name="vatsim_id" value="{{ old('vatsim_id') }}" required>
+
+                                @if ($errors->has('vatsim_id'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('vatsim_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">Password (<b>NOT</b> your Vatsim password)</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
