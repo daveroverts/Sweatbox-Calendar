@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return ('Under construction, please come back later');
-});
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
