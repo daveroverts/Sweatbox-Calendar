@@ -16,7 +16,13 @@
                 </thead>
                 <tbody>
                 @forelse($user->sessions as $session)
-                    <tr>
+                    @if($session->inProgress == 1)
+                        <tr class="table-info">
+                    @elseif($session->begin < date(strtotime('now')) && $session->inProgress == 0)
+                        <tr class="table-danger">
+                    @else
+                        <tr>
+                    @endif
                         <td>{{ $session->student }}</td>
                         <td>{{ date('d-m-Y', strtotime($session->date)) }}</td>
                         <td>{{ $session->begin }}z</td>
