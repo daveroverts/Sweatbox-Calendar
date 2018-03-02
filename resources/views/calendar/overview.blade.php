@@ -27,6 +27,13 @@
                         <td>{{ date('d-m-Y', strtotime($session->date)) }}</td>
                         <td>{{ $session->begin }}z</td>
                         <td>{{ $session->end }}z</td>
+                        <td>
+                            @if($session->inProgress == 1)
+                                <a href="/calendar/stopSession" class="btn btn-danger">Stop Session</a>
+                            @else
+                                <a href="/calendar/startSession" class="btn btn-success">Start Session</a>
+                            @endif
+                        </td>
                     </tr>
                 @empty
                     <p>No sessions have been planned...</p>
