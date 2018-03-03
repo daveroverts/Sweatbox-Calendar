@@ -17,6 +17,25 @@ class CreateTypeSession extends Migration
             $table->increments('id');
             $table->text('typeSession');
         });
+
+        //Inserting all the types of sessions that are available
+        $types = [
+            "Delivery",
+            "Ground",
+            "Ground Exam",
+            "Tower",
+            "Approach",
+            "Approach Pre-CPT",
+            "ACC",
+            "ACC Pre-CPT",
+        ];
+        foreach ($types as $type){
+            DB::table('type')->insert(
+                array(
+                    'typeSession' => $type
+                )
+            );
+        }
     }
 
     /**
