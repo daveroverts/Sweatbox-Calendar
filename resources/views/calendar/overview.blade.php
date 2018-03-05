@@ -29,7 +29,10 @@
                         <td>{{ $session->end }}z</td>
 
                             @if($session->inProgress == 1)
-                                <td colspan="3"><a href="/calendar/stopSession" class="btn btn-danger">Stop Session</a></td>
+                                <td><form action="/calendar/stopSession/{{$session->id}}">
+                                        <button class="btn btn-danger">Stop Session</button>
+                                        @csrf
+                                    </form></td>
                             @else
                                 <td><form action="/calendar/startSession/{{$session->id}}">
                                         <button class="btn btn-success">Start Session</button>

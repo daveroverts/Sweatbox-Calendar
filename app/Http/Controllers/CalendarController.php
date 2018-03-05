@@ -123,4 +123,10 @@ class CalendarController extends Controller
             ->update(['inProgress' => 1, 'actualBegin' => now()]);
         return redirect('/calendar');
     }
+    public function stopSession($id){
+        DB::table('sessions')
+            ->where('id', $id)
+            ->update(['inProgress' => 0, 'actualEnd' => now()]);
+        return redirect('/calendar');
+    }
 }
