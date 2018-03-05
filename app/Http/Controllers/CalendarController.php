@@ -7,6 +7,7 @@ Use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
+use DB;
 
 class CalendarController extends Controller
 {
@@ -113,6 +114,13 @@ class CalendarController extends Controller
     public function destroy($id)
     {
         Session::find($id)->delete();
+        return redirect('/calendar');
+    }
+
+    public function startSession($id){
+        DB::table('sessions')
+            ->where('id', $id)
+            ->update(['inProgress' => 1]);
         return redirect('/calendar');
     }
 }
