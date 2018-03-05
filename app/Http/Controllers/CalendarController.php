@@ -120,7 +120,7 @@ class CalendarController extends Controller
     public function startSession($id){
         DB::table('sessions')
             ->where('id', $id)
-            ->update(['inProgress' => 1]);
+            ->update(['inProgress' => 1, 'actualBegin' => now()]);
         return redirect('/calendar');
     }
 }
