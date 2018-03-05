@@ -32,6 +32,19 @@
                                 <a href="/calendar/stopSession" class="btn btn-danger">Stop Session</a>
                             @else
                                 <a href="/calendar/startSession" class="btn btn-success">Start Session</a>
+
+                                <form action="/calendar/{{$session->id}}/edit">
+                                    <button class="btn btn-primary">Edit Session</button>
+                                    @csrf
+                                </form>
+
+                                <form action="/calendar/{{$session->id}}" method="POST">
+
+                                    @method('DELETE')
+                                    <button class="btn btn-danger">Delete Session</button>
+                                    @csrf
+                                </form>
+
                             @endif
                         </td>
                     </tr>
