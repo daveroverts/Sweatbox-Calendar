@@ -95,11 +95,6 @@ class CalendarController extends Controller
      */
     public function update(Request $request, Session $session)
     {
-        if (isset($_POST['delete'])){
-            $session->delete();
-            return view('/calendar');
-        }
-        else{
             $session->student = $request->student;
             $session->date = $request->date;
             $session->begin = $request->begin;
@@ -107,7 +102,6 @@ class CalendarController extends Controller
             $session->description = $request->description;
             $session->save();
             return redirect('/calendar');
-        }
     }
 
     /**
