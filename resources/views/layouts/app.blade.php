@@ -63,6 +63,12 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <footer><span class="fa fa-copyright"></span> <?php
+            //An script to generate the copyright date using the server's year
+            $fromYear = 2018;
+            $thisYear = (int)date('Y');
+            echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?> SweatBox Calendar, created by Dave Roverts.
+        </footer>
     </div>
 
     <!-- Scripts -->
