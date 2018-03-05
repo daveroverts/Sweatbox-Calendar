@@ -27,7 +27,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        Current date/time: <?php echo date('D d-m-Y Hm',strtotime('now')).'z' ?>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
