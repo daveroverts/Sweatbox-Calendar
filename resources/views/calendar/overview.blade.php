@@ -23,12 +23,12 @@
                         <tr class="table-danger">
                     @else
                         <tr>
-                    @endif
-                        <td>{{ $session->name }}</td>
-                        <td>{{ $session->student }}</td>
-                        <td>{{ date('d-m-Y', strtotime($session->date)) }}</td>
-                        <td>{{ $session->begin }}z</td>
-                        <td>{{ $session->end }}z</td>
+                            @endif
+                            <td>{{ $session->name }}</td>
+                            <td>{{ $session->student }}</td>
+                            <td>{{ date('d-m-Y', strtotime($session->date)) }}</td>
+                            <td>{{ $session->begin }}z</td>
+                            <td>{{ $session->end }}z</td>
 
                             @if($session->inProgress == 1)
                                 <td colspan="3"><form action="/calendar/stopSession/{{$session->id}}">
@@ -42,22 +42,22 @@
                                     </form></td>
 
                                 <td><form action="/calendar/{{$session->id}}/edit">
-                                    <button class="btn btn-primary">Edit Session</button>
-                                    @csrf
-                                </form></td>
+                                        <button class="btn btn-primary">Edit Session</button>
+                                        @csrf
+                                    </form></td>
 
                                 <td><form action="/calendar/{{$session->id}}" method="POST">
-                                    @method('DELETE')
-                                    <button class="btn btn-danger">Delete Session</button>
-                                    @csrf
-                                </form></td>
+                                        @method('DELETE')
+                                        <button class="btn btn-danger">Delete Session</button>
+                                        @csrf
+                                    </form></td>
                             @endif
-                    </tr>
-                @empty
-                    <p>No sessions have been planned...</p>
-                @endforelse
+                        </tr>
+                        @empty
+                            <p>No sessions have been planned...</p>
+                        @endforelse
                 </tbody>
             </table>
-            @endif
+        @endif
     </div>
 @endsection

@@ -101,13 +101,13 @@ class CalendarController extends Controller
      */
     public function update(Request $request, Session $session)
     {
-            $session->student = $request->student;
-            $session->date = $request->date;
-            $session->begin = $request->begin;
-            $session->end = $request->end;
-            $session->description = $request->description;
-            $session->save();
-            return redirect('/calendar');
+        $session->student = $request->student;
+        $session->date = $request->date;
+        $session->begin = $request->begin;
+        $session->end = $request->end;
+        $session->description = $request->description;
+        $session->save();
+        return redirect('/calendar');
     }
 
     /**
