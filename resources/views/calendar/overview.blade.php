@@ -9,6 +9,7 @@
                 <thead><tr>
                     <th>Booked By</th>
                     <th>Student</th>
+                    <th>Type</th>
                     <th>Date</th>
                     <th>Begin</th>
                     <th>End</th>
@@ -24,8 +25,9 @@
                     @else
                         <tr>
                             @endif
-                            <td>{{ $session->name }}</td>
+                            <td>{{ $session->mentorName }}</td>
                             <td>{{ $session->student }}</td>
+                            <td>{{ $session->sessionType }}</td>
                             <td>{{ date('d-m-Y', strtotime($session->date)) }}</td>
                             <td>{{ $session->begin }}z</td>
                             <td>{{ $session->end }}z</td>
