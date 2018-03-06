@@ -2,6 +2,15 @@
 
 @section('content')
     <div class="container">
+        @if (count($errors) > 0)
+            <div class = "alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -62,6 +71,20 @@
                                     @if ($errors->has('timeEnd'))
                                         <span class="invalid-feedback">
                                         <strong>{{ $errors->first('timeEnd') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="typeSession" class="col-md-4 col-form-label text-md-right">Type session</label>
+
+                                <div class="col-md-6">
+                                    <input id="typeSession" type="text" class="form-control{{ $errors->has('typeSession') ? ' is-invalid' : '' }}" name="typeSession" value="{{ old('typeSession') }}" required autofocus>
+
+                                    @if ($errors->has('typeSession'))
+                                        <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('typeSession') }}</strong>
                                     </span>
                                     @endif
                                 </div>
