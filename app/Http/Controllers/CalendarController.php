@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Session;
+use App\SessionType;
 Use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -34,7 +35,11 @@ class CalendarController extends Controller
      */
     public function create()
     {
-        return view('calendar.create');
+        if (Auth::check()) {
+            $sessionTypes = SessionType::all();
+            return view('calendar.create')->with('sessionTypes', $sessionTypes);
+        }
+        else return redirect('/');
     }
 
     /**
@@ -61,6 +66,7 @@ class CalendarController extends Controller
         $session->begin = $request->timeBegin;
         $session->end = $request->timeEnd;
         $session->description = $request->description;
+        $session->typeSession = $request->typeSession;
         $session->save();
         return redirect('/calendar');
     }
