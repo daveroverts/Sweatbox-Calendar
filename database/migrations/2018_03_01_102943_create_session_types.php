@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTypeSession extends Migration
+class CreateSessionType extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateTypeSession extends Migration
      */
     public function up()
     {
-        Schema::create('type', function (Blueprint $table) {
+        Schema::create('session_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('typeSession');
+            $table->text('name');
         });
 
         //Inserting all the types of sessions that are available
@@ -30,7 +30,7 @@ class CreateTypeSession extends Migration
             "ACC Pre-CPT",
         ];
         foreach ($types as $type){
-            DB::table('type')->insert(
+            DB::table('session_types')->insert(
                 array(
                     'typeSession' => $type
                 )
@@ -45,6 +45,6 @@ class CreateTypeSession extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type');
+        Schema::dropIfExists('session_types');
     }
 }
