@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSessionType extends Migration
+class CreateSessionTypes extends Migration
 {
     /**
      * Run the migrations.
@@ -32,7 +32,7 @@ class CreateSessionType extends Migration
         foreach ($types as $type){
             DB::table('session_types')->insert(
                 array(
-                    'typeSession' => $type
+                    'name' => $type
                 )
             );
         }
