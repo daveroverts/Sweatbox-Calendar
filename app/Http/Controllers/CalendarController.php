@@ -18,8 +18,10 @@ class CalendarController extends Controller
      */
     public function index()
     {
-        $user = \Auth::user();
-        return view('calendar.overview', compact('user'));
+        $sessions = DB::table('sessions')
+            ->orderBy('inProgress', 'desc')
+            ->get();
+        return view('calendar.overview', compact('sessions'));
     }
 
     /**

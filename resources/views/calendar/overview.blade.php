@@ -15,7 +15,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @forelse($user->sessions as $session)
+                @forelse($sessions as $session)
                     @if($session->inProgress == 1)
                         <tr class="table-info">
                     @elseif($session->date < date('Y-m-d',strtotime('now')) && $session->inProgress == 0)
