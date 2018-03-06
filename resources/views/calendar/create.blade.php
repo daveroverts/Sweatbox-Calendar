@@ -80,7 +80,11 @@
                                 <label for="typeSession" class="col-md-4 col-form-label text-md-right">Type session</label>
 
                                 <div class="col-md-6">
-                                    <input id="typeSession" type="text" class="form-control{{ $errors->has('typeSession') ? ' is-invalid' : '' }}" name="typeSession" value="{{ old('typeSession') }}" required autofocus>
+                                    <select class="custom-select" name="typeSession">
+                                        @foreach($sessionTypes as $type)
+                                            <option name="typeSession" value="{{$type->id}}">{{ $type->name }}</option>
+                                        @endforeach
+                                    </select>
 
                                     @if ($errors->has('typeSession'))
                                         <span class="invalid-feedback">
