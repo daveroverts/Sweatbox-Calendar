@@ -19,7 +19,10 @@ class CalendarController extends Controller
     public function index()
     {
         $sessions = DB::table('sessions')
+            ->join('users', 'users.id', '=', 'sessions.user_id')
             ->orderBy('inProgress', 'desc')
+            ->orderBy('date', 'asc')
+            ->orderBy('begin', 'asc')
             ->get();
         return view('calendar.overview', compact('sessions'));
     }
