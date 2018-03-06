@@ -7,6 +7,7 @@
             <a href="/calendar/create" class="btn btn-primary">Add new Session</a>
             <table class="table">
                 <thead><tr>
+                    <th>Booked By</th>
                     <th>Student</th>
                     <th>Date</th>
                     <th>Begin</th>
@@ -23,6 +24,7 @@
                     @else
                         <tr>
                     @endif
+                        <td>{{ $session->name }}</td>
                         <td>{{ $session->student }}</td>
                         <td>{{ date('d-m-Y', strtotime($session->date)) }}</td>
                         <td>{{ $session->begin }}z</td>
