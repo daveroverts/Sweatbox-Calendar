@@ -21,6 +21,7 @@ class CreateSessionsTable extends Migration
             $table->time('begin');
             $table->time('end');
             $table->text('description')->nullable();
+            $table->integer('typeSession');
             $table->boolean('inProgress')->default(false);
             $table->dateTime('actualBegin')->nullable();
             $table->dateTime('actualEnd')->nullable();
