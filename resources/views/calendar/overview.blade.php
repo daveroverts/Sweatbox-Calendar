@@ -18,7 +18,7 @@
                 @forelse($user->sessions as $session)
                     @if($session->inProgress == 1)
                         <tr class="table-info">
-                    @elseif($session->begin < date(strtotime('now')) && $session->inProgress == 0)
+                    @elseif($session->date < date('Y-m-d',strtotime('now')) && $session->inProgress == 0)
                         <tr class="table-danger">
                     @else
                         <tr>
