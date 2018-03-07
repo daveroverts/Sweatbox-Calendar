@@ -20,7 +20,7 @@ class CalendarController extends Controller
     public function index()
     {
         $sessions = DB::table('sessions')
-            ->select('*', 'users.name as mentorName' ,'session_types.name as sessionType')
+            ->select('*','sessions.id as sessionId', 'users.name as mentorName' ,'session_types.name as sessionType')
             ->join('users', 'users.id', '=', 'sessions.user_id')
             ->join('session_types', 'session_types.id', '=', 'sessions.typeSession')
             ->orderBy('inProgress', 'desc')

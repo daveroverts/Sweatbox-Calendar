@@ -31,22 +31,22 @@
                             <td>{{ $session->begin }}z - {{ $session->end }}z</td>
 
                             @if($session->inProgress == 1)
-                                <td colspan="3"><form action="/calendar/stopSession/{{$session->id}}">
+                                <td colspan="3"><form action="/calendar/stopSession/{{$session->sessionId}}">
                                         <button class="btn btn-danger">Stop Session</button>
                                         @csrf
                                     </form></td>
                             @else
-                                <td><form action="/calendar/startSession/{{$session->id}}">
+                                <td><form action="/calendar/startSession/{{$session->sessionId}}">
                                         <button class="btn btn-success">Start Session</button>
                                         @csrf
                                     </form></td>
 
-                                <td><form action="/calendar/{{$session->id}}/edit">
+                                <td><form action="/calendar/{{$session->sessionId}}/edit">
                                         <button class="btn btn-primary">Edit Session</button>
                                         @csrf
                                     </form></td>
 
-                                <td><form action="/calendar/{{$session->id}}" method="POST">
+                                <td><form action="/calendar/{{$session->sessionId}}" method="POST">
                                         @method('DELETE')
                                         <button class="btn btn-danger">Delete Session</button>
                                         @csrf
