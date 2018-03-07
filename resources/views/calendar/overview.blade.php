@@ -4,7 +4,8 @@
     <div class="container">
         @if(Auth::check())
             <h2>Calendar Overview</h2>
-            <a href="/calendar/create" class="btn btn-primary">Add new Session</a>
+            <a href="/calendar/create" class="btn btn-primary"><i class="fa fa-calendar-plus-o"></i> Add new Session</a>
+            <br><br>
             <table class="table">
                 <thead><tr>
                     <th>Booked By</th>
@@ -32,23 +33,23 @@
 
                             @if($session->inProgress == 1)
                                 <td colspan="3"><form action="/calendar/stopSession/{{$session->sessionId}}">
-                                        <button class="btn btn-danger">Stop Session</button>
+                                        <button class="btn btn-danger"><i class="fa fa-stop"></i> Stop Session</button>
                                         @csrf
                                     </form></td>
                             @else
                                 <td><form action="/calendar/startSession/{{$session->sessionId}}">
-                                        <button class="btn btn-success">Start Session</button>
+                                        <button class="btn btn-success"><i class="fa fa-play"></i> Start Session</button>
                                         @csrf
                                     </form></td>
 
                                 <td><form action="/calendar/{{$session->sessionId}}/edit">
-                                        <button class="btn btn-primary">Edit Session</button>
+                                        <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit Session</button>
                                         @csrf
                                     </form></td>
 
                                 <td><form action="/calendar/{{$session->sessionId}}" method="POST">
                                         @method('DELETE')
-                                        <button class="btn btn-danger">Delete Session</button>
+                                        <button class="btn btn-danger"><i class="fa fa-calendar-minus-o"></i> Delete Session</button>
                                         @csrf
                                     </form></td>
                             @endif

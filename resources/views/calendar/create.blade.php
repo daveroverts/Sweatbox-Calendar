@@ -21,7 +21,7 @@
                             @csrf
 
                             <div class="form-group row">
-                                <label for="student" class="col-md-4 col-form-label text-md-right">Student</label>
+                                <label for="student" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Student</label>
 
                                 <div class="col-md-6">
                                     <input id="student" type="text" class="form-control{{ $errors->has('student') ? ' is-invalid' : '' }}" name="student" value="{{ old('student') }}" required autofocus>
@@ -35,7 +35,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="date" class="col-md-4 col-form-label text-md-right">Date</label>
+                                <label for="date" class="col-md-4 col-form-label text-md-right"><i class="fa fa-calendar"></i> Date</label>
 
                                 <div class="col-md-6">
                                     <input id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name="date" value="{{ old('date') }}" required autofocus>
@@ -49,7 +49,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="timeBegin" class="col-md-4 col-form-label text-md-right">Begin (UTC)</label>
+                                <label for="timeBegin" class="col-md-4 col-form-label text-md-right"><i class="fa fa-clock-o fa-flip-horizontal"></i> Begin (UTC)</label>
 
                                 <div class="col-md-6">
                                     <input id="timeBegin" type="time" class="form-control{{ $errors->has('timeEnd') ? ' is-invalid' : '' }}" name="timeBegin" value="{{ old('timeBegin') }}" required autofocus>
@@ -63,7 +63,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="timeEnd" class="col-md-4 col-form-label text-md-right">End (UTC)</label>
+                                <label for="timeEnd" class="col-md-4 col-form-label text-md-right"><i class="fa fa-clock-o"></i> End (UTC)</label>
 
                                 <div class="col-md-6">
                                     <input id="timeBegin" type="time" class="form-control{{ $errors->has('timeEnd') ? ' is-invalid' : '' }}" name="timeEnd" value="{{ old('timeEnd') }}" required autofocus>
@@ -77,7 +77,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="typeSession" class="col-md-4 col-form-label text-md-right">Type session</label>
+                                <label for="typeSession" class="col-md-4 col-form-label text-md-right"><i class="fa fa-list-ul"></i> Type session</label>
 
                                 <div class="col-md-6">
                                     <select class="custom-select" name="typeSession">
@@ -95,7 +95,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="description" class="col-md-4 col-form-label text-md-right">Description</label>
+                                <label for="description" class="col-md-4 col-form-label text-md-right"><i class="fa fa-bars"></i> Description</label>
 
                                 <div class="col-md-6">
                                     <textarea name="description" class="form-control"></textarea>
@@ -105,7 +105,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Create
+                                        <i class="fa fa-calendar-plus-o"></i> Create
                                     </button>
                                 </div>
                             </div>
