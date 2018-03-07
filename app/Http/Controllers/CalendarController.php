@@ -52,14 +52,15 @@ class CalendarController extends Controller
      */
     public function store(Request $request)
     {
-
-        try {
-            Validator::make($request->all(), [
+            $validator = Validator::make($request->all(), [
                 'date' => 'required|date:after_or_equal:today',
                 'begin' => 'required|time|after:now',
                 'end' => 'required:time:after:begin',
-            ])->validate();
-        } catch (ValidationException $e) {
+            ]);
+        if ($validator->fails()) {
+            return redirect('calendar/create')
+                ->withErrors($validator)
+                ->withInput();
         }
         $session = new Session();
         $session->user_id = Auth::id();
