@@ -14,6 +14,8 @@
 Route::get('/', 'HomeController@index');
 
 Auth::routes();
+
+//Calendar
 Route::resource('/calendar', 'CalendarController');
 Route::get('/calendar/startSession/{session}','CalendarController@startSession');
 Route::get('/calendar/stopSession/{session}','CalendarController@stopSession');
