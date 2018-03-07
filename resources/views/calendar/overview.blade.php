@@ -11,8 +11,7 @@
                     <th>Student</th>
                     <th>Type</th>
                     <th>Date</th>
-                    <th>Begin</th>
-                    <th>End</th>
+                    <th>From/Till</th>
                     <th colspan="3">Actions</th>
                 </tr>
                 </thead>
@@ -26,11 +25,10 @@
                         <tr>
                             @endif
                             <td>{{ $session->mentorName }}</td>
-                            <td>{{ $session->student }}</td>
+                            <td><a href="https://stats.vatsim.net/search_id.php?id={{ $session->student }}">{{ $session->student }}</a></td>
                             <td>{{ $session->sessionType }}</td>
                             <td>{{ date('d-m-Y', strtotime($session->date)) }}</td>
-                            <td>{{ $session->begin }}z</td>
-                            <td>{{ $session->end }}z</td>
+                            <td>{{ $session->begin }}z - {{ $session->end }}z</td>
 
                             @if($session->inProgress == 1)
                                 <td colspan="3"><form action="/calendar/stopSession/{{$session->id}}">
