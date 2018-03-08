@@ -53,8 +53,8 @@ class CalendarController extends Controller
     public function store(Request $request)
     {
             $validator = Validator::make($request->all(), [
-                'date' => 'required|date:after_or_equal:today',
-                'begin' => 'required|time|after:now',
+                'date' => 'bail|required|date:after_or_equal:today',
+                'begin' => 'bail|required|time|after:now',
                 'end' => 'required:time:after:begin',
             ]);
         if ($validator->fails()) {
