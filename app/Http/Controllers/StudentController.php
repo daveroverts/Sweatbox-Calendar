@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Student;
+use App\Rating;
+use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
@@ -27,7 +30,12 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        if (Auth::check()) {
+            $ratings = Rating::all();
+            $mentors = User::all();
+            return view('student.create')->with('ratings', $ratings)->with('mentors', $mentors);
+        }
+        else return redirect('/');
     }
 
     /**
@@ -38,7 +46,22 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'bail|required|string',
+            'vatsim_id' => 'required|numeric|digits_between:6,7',
+            'email' => 'required|string|email|max:255|unique:student',
+        ]);
+        if ($validator->fails()) {
+            return redirect('student/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+        $student = new Student();
+        $student->name = $request->name;
+        $student->vatsim_id = $request->vatsim_id;
+        $student->email = $request->email;
+        $student->save();
+        return redirect('/student');
     }
 
     /**
