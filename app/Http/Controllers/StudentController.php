@@ -20,7 +20,12 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students = DB::table('students')
+            ->select('*','students.name AS studentName','students.email AS studentEmail','students.vatsim_id AS studentVatsim_id','users.name AS mentorName', 'ratings.shortName AS ratingShortName', 'ratings.longName AS ratingLongName')
+            ->join('users', 'users.id', '=', 'students.mentor')
+            ->join('ratings', 'ratings.id', '=', 'students.rating')
+            ->get();
+        return view('student.overview', compact('students'));
     }
 
     /**
