@@ -54,7 +54,7 @@ class StudentController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'bail|required|string',
             'vatsim_id' => 'required|numeric|digits_between:6,7',
-            'email' => 'required|string|email|max:255|unique:students',
+            'email' => 'required|email|max:255|unique:students',
         ]);
         if ($validator->fails()) {
             return redirect('student/create')
