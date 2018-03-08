@@ -25,6 +25,10 @@
                             <td>{{ $student->mentorName }}</td>
                             <td>{{ $student->ratingLongName }} [{{ $student->ratingShortName }}]</td>
 
+                                <td><form action="/student/{{$student->id}}/edit">
+                                        <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit Student</button>
+                                        @csrf
+                                    </form></td>
                         </tr>
                         @empty
                             <p>No students are in the system, consider adding one, using the button above</p>
