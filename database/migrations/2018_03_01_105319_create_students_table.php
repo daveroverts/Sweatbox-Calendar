@@ -18,7 +18,7 @@ class CreateStudentsTable extends Migration
             $table->string('name');
             $table->string('vatsim_id', 7)->unique();
             $table->string('email')->unique();
-            $table->integer('rating')->default(0);
+            $table->integer('rating')->default(1);
             $table->integer('mentor')->default(0);
             $table->timestamps();
         });
