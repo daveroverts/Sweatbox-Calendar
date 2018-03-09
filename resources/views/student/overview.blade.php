@@ -19,11 +19,11 @@
                 <tbody>
                 @forelse($students as $student)
                         <tr>
-                            <td><a href="https://stats.vatsim.net/search_id.php?id={{ $student->studentVatsim_id }}">{{ $student->studentVatsim_id }}</a></td>
+                            <td><a href="https://stats.vatsim.net/search_id.php?id={{ $student->vatsim_id }}">{{ $student->vatsim_id }}</a></td>
                             <td>{{ $student->studentName }}</td>
-                            <td><a href="{{ $student->studentEmail }}">{{ $student->studentEmail }}</a></td>
-                            <td>{{ $student->mentorName }}</td>
-                            <td>{{ $student->ratingLongName }} [{{ $student->ratingShortName }}]</td>
+                            <td><a href="{{ $student->email }}">{{ $student->email }}</a></td>
+                            <td>{{ $student->name }}</td>
+                            <td>{{ $student->longName }} [{{ $student->shortName }}]</td>
 
                                 <td><form action="/student/{{$student->id}}/edit">
                                         <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit Student</button>
