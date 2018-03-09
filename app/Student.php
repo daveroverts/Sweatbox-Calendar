@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     function user(){
-        $this->belongsTo(User::class);
+        return $this->belongsTo('App\User', 'id');
+    }
+
+    function rating(){
+        return $this->hasOne('App\Rating');
     }
 }
