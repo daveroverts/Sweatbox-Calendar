@@ -25,9 +25,9 @@
                     @else
                         <tr>
                             @endif
-                            <td>{{ $session->mentorName }}</td>
-                            <td><a href="https://stats.vatsim.net/search_id.php?id={{ $session->student }}">{{ $session->student }}</a></td>
-                            <td>{{ $session->sessionType }}</td>
+                            <td>{{ $session->user->name }}</td>
+                            <td><a href="https://stats.vatsim.net/search_id.php?id={{ $session->currentStudent->vatsim_id }}">{{ $session->currentStudent->name }}</a></td>
+                            <td>{{ $session->type->name }}</td>
                             <td>{{ date('d-m-Y', strtotime($session->date)) }}</td>
                             <td>{{ $session->begin }}z - {{ $session->end }}z</td>
 

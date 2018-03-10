@@ -9,4 +9,8 @@ class Session extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function currentStudent(){
+        return $this->belongsTo('App\Student', 'id');
+    }
 }
