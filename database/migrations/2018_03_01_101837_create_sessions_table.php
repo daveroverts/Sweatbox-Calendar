@@ -18,6 +18,7 @@ class CreateSessionsTable extends Migration
             $table->integer('user_id')->index();
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('student_id');
+            $table->foreign('student_id')->references('id')->on('students');
             $table->date('date');
             $table->time('begin');
             $table->time('end');

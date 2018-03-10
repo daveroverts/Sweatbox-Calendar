@@ -26,28 +26,28 @@
                         <tr>
                             @endif
                             <td>{{ $session->user->name }}</td>
-                            <td><a href="https://stats.vatsim.net/search_id.php?id={{ $session->currentStudent->vatsim_id }}">{{ $session->currentStudent->name }}</a></td>
+                            <td><a href="https://stats.vatsim.net/search_id.php?id={{ $session->student->vatsim_id }}">{{ $session->student->name }}</a></td>
                             <td>{{ $session->type->name }}</td>
                             <td>{{ date('d-m-Y', strtotime($session->date)) }}</td>
                             <td>{{ $session->begin }}z - {{ $session->end }}z</td>
 
                             @if($session->inProgress == 1)
-                                <td colspan="3"><form action="/calendar/stopSession/{{$session->sessionId}}">
+                                <td colspan="3"><form action="/calendar/stopSession/{{$session->id}}">
                                         <button class="btn btn-danger"><i class="fa fa-stop"></i> Stop Session</button>
                                         @csrf
                                     </form></td>
                             @else
-                                <td><form action="/calendar/startSession/{{$session->sessionId}}">
+                                <td><form action="/calendar/startSession/{{$session->id}}">
                                         <button class="btn btn-success"><i class="fa fa-play"></i> Start Session</button>
                                         @csrf
                                     </form></td>
 
-                                <td><form action="/calendar/{{$session->sessionId}}/edit">
+                                <td><form action="/calendar/{{$session->id}}/edit">
                                         <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit Session</button>
                                         @csrf
                                     </form></td>
 
-                                <td><form action="/calendar/{{$session->sessionId}}" method="POST">
+                                <td><form action="/calendar/{{$session->id}}" method="POST">
                                         @method('DELETE')
                                         <button class="btn btn-danger"><i class="fa fa-calendar-minus-o"></i> Delete Session</button>
                                         @csrf
