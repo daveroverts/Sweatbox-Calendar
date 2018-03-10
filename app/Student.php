@@ -13,14 +13,14 @@ class Student extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'vatsim_id', 'email', 'rating', 'mentor',
+        'name', 'vatsim_id', 'email', 'rating_id', 'mentor_id',
     ];
 
     public function currentMentor(){
-        return $this->hasOne('App\User', 'id','mentor');
+        return $this->hasOne('App\User', 'id','mentor_id');
     }
 
-    function currentRating(){
-        return $this->hasOne('App\Rating', 'id');
+    function rating(){
+        return $this->hasOne('App\Rating', 'id', 'rating_id');
     }
 }

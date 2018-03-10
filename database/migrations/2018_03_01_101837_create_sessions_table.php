@@ -15,13 +15,15 @@ class CreateSessionsTable extends Migration
     {
         Schema::create('sessions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->index();
-            $table->string('student');
+            $table->integer('user_id')->index();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('student_id');
             $table->date('date');
             $table->time('begin');
             $table->time('end');
             $table->text('description')->nullable();
-            $table->integer('typeSession');
+            $table->integer('typeSession_id');
+            $table->foreign('typeSession_id')->references('id')->on('session_types');
             $table->boolean('inProgress')->default(false);
             $table->dateTime('actualBegin')->nullable();
             $table->dateTime('actualEnd')->nullable();

@@ -8,7 +8,7 @@ class Rating extends Model
 {
 
     function student(){
-        return $this->belongsToMany('App\Student', 'id');
+        return $this->belongsToMany('App\Student', 'students', 'rating_id');
     }
 
     /**

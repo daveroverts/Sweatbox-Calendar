@@ -27,7 +27,7 @@
                                 @else
                                     -
                                 @endif</td>
-                            <td>{{ $student->currentRating->longName }} [{{ $student->currentRating->shortName }}]</td>
+                            <td>{{ $student->rating->longName }} [{{ $student->rating->shortName }}]</td>
 
                             <td><form action="/student/{{$student->id}}/edit">
                                     <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit Student</button>
