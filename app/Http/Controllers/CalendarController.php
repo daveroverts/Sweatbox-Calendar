@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Session;
 use App\SessionType;
+use App\Student;
 Use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -39,7 +40,10 @@ class CalendarController extends Controller
     {
         if (Auth::check()) {
             $sessionTypes = SessionType::all();
-            return view('calendar.create')->with('sessionTypes', $sessionTypes);
+            $students = Student::all();
+            return view('calendar.create')
+                ->with('sessionTypes', $sessionTypes)
+                ->with('students', $students);
         }
         else return redirect('/');
     }

@@ -25,11 +25,15 @@
                                 <label for="student" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Student</label>
 
                                 <div class="col-md-6">
-                                    <input id="student" type="text" class="form-control{{ $errors->has('student') ? ' is-invalid' : '' }}" name="student" value="{{ old('student') }}" required autofocus>
+                                    <select class="custom-select" name="student">
+                                        @foreach($students as $student)
+                                            <option name="student" value="{{$student->id}}">{{ $student->name }}</option>
+                                        @endforeach
+                                    </select>
 
-                                    @if ($errors->has('name'))
+                                    @if ($errors->has('student'))
                                         <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('student') }}</strong>
                                     </span>
                                     @endif
                                 </div>
