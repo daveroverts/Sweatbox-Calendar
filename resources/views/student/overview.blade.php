@@ -6,7 +6,7 @@
             <h2>Students Overview</h2>
             <a href="/student/create" class="btn btn-primary"><i class="fa fa-user"></i> Add new Student</a>
             <br><br>
-            <table class="table">
+            <table class="table table-hover">
                 <thead><tr>
                     <th>Vatsim ID</th>
                     <th>Name</th>

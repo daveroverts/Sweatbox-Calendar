@@ -6,7 +6,7 @@
             <h2>Calendar Overview</h2>
             <a href="/calendar/create" class="btn btn-primary"><i class="fa fa-calendar-plus-o"></i> Add new Session</a>
             <br><br>
-            <table class="table">
+            <table class="table table-hover">
                 <thead><tr>
                     <th>Booked By</th>
                     <th>Student</th>
