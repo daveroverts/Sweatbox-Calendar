@@ -109,7 +109,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-calendar-plus-o"></i> Create
+                                        <i class="fa fa-user-plus"></i> Create
                                     </button>
                                 </div>
                             </div>

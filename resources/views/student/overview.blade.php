@@ -4,7 +4,7 @@
     <div class="container">
         @if(Auth::check())
             <h2>Students Overview</h2>
-            <a href="/student/create" class="btn btn-primary"><i class="fa fa-user"></i> Add new Student</a>
+            <a href="/student/create" class="btn btn-primary"><i class="fa fa-user-plus"></i> Add new Student</a>
             <br><br>
             <table class="table table-hover">
                 <thead><tr>
