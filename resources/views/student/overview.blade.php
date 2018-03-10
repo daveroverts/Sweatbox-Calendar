@@ -22,8 +22,8 @@
                             <td><a href="https://stats.vatsim.net/search_id.php?id={{ $student->vatsim_id }}">{{ $student->vatsim_id }}</a></td>
                             <td>{{ $student->name }}</td>
                             <td><a href="{{ $student->email }}">{{ $student->email }}</a></td>
-                            <td>@if(isset($student->user->name))
-                                    {{ $student->user->name }}
+                            <td>@if(isset($student->currentMentor->name))
+                                    {{ $student->currentMentor->name }}
                                 @else
                                     -
                                 @endif</td>

@@ -16,8 +16,8 @@ class Student extends Model
         'name', 'vatsim_id', 'email', 'rating', 'mentor',
     ];
 
-    function user(){
-        return $this->belongsTo('App\User', 'id');
+    public function currentMentor(){
+        return $this->hasOne('App\User', 'id','mentor');
     }
 
     function currentRating(){
