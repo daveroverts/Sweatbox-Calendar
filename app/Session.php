@@ -13,4 +13,8 @@ class Session extends Model
     public function currentStudent(){
         return $this->belongsTo('App\Student', 'id');
     }
+
+    public function type(){
+        return $this->belongsTo('App\SessionType', 'id');
+    }
 }
