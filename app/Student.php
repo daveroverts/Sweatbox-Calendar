@@ -20,7 +20,7 @@ class Student extends Model
         return $this->belongsTo('App\User', 'id');
     }
 
-    function rating(){
-        return $this->hasOne('App\Rating');
+    function currentRating(){
+        return $this->hasOne('App\Rating', 'id');
     }
 }
