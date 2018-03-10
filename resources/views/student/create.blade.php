@@ -24,11 +24,11 @@
                                 <label for="student" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="studentName" type="text" class="form-control{{ $errors->has('studentName') ? ' is-invalid' : '' }}" name="studentName" value="{{ old('studentName') }}" required autofocus>
+                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
 
-                                    @if ($errors->has('studentName'))
+                                    @if ($errors->has('name'))
                                         <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('studentName') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                     @endif
                                 </div>

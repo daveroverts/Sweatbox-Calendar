@@ -58,7 +58,7 @@ class StudentController extends Controller
                 ->withInput();
         }
         $student = new Student();
-        $student->studentName = $request->studentName;
+        $student->name = $request->name;
         $student->vatsim_id = $request->vatsim_id;
         $student->email = $request->email;
         $student->rating = $request->rating;
