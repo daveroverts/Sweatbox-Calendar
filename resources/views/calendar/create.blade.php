@@ -20,6 +20,7 @@
                         <form method="POST" action="{{ route('calendar.store') }}">
                             @csrf
 
+                            {{--Student--}}
                             <div class="form-group row">
                                 <label for="student" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Student</label>
 
@@ -34,6 +35,7 @@
                                 </div>
                             </div>
 
+                            {{--Date--}}
                             <div class="form-group row">
                                 <label for="date" class="col-md-4 col-form-label text-md-right"><i class="fa fa-calendar"></i> Date</label>
 
@@ -48,6 +50,7 @@
                                 </div>
                             </div>
 
+                            {{--Time begin--}}
                             <div class="form-group row">
                                 <label for="timeBegin" class="col-md-4 col-form-label text-md-right"><i class="fa fa-clock-o fa-flip-horizontal"></i> Begin (UTC)</label>
 
@@ -62,6 +65,7 @@
                                 </div>
                             </div>
 
+                            {{--Time end--}}
                             <div class="form-group row">
                                 <label for="timeEnd" class="col-md-4 col-form-label text-md-right"><i class="fa fa-clock-o"></i> End (UTC)</label>
 
@@ -76,6 +80,7 @@
                                 </div>
                             </div>
 
+                            {{--Type session--}}
                             <div class="form-group row">
                                 <label for="typeSession" class="col-md-4 col-form-label text-md-right"><i class="fa fa-list-ul"></i> Type session</label>
 
@@ -94,6 +99,7 @@
                                 </div>
                             </div>
 
+                            {{--Description--}}
                             <div class="form-group row">
                                 <label for="description" class="col-md-4 col-form-label text-md-right"><i class="fa fa-bars"></i> Description</label>
 
@@ -102,6 +108,7 @@
                                 </div>
                             </div>
 
+                            {{--Create--}}
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
