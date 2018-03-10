@@ -22,13 +22,17 @@
                             <td><a href="https://stats.vatsim.net/search_id.php?id={{ $student->vatsim_id }}">{{ $student->vatsim_id }}</a></td>
                             <td>{{ $student->studentName }}</td>
                             <td><a href="{{ $student->email }}">{{ $student->email }}</a></td>
-                            <td>{{ $student->name }}</td>
-                            <td>{{ $student->longName }} [{{ $student->shortName }}]</td>
+                            <td>@if(isset($student->user->name))
+                                    {{ $student->user->name }}
+                                @else
+                                    -
+                                @endif</td>
+                            <td>{{ $student->currentRating->longName }} [{{ $student->currentRating->shortName }}]</td>
 
-                                <td><form action="/student/{{$student->id}}/edit">
-                                        <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit Student</button>
-                                        @csrf
-                                    </form></td>
+                            <td><form action="/student/{{$student->id}}/edit">
+                                    <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit Student</button>
+                                    @csrf
+                                </form></td>
                         </tr>
                         @empty
                             <p>No students are in the system, consider adding one, using the button above</p>
