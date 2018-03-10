@@ -58,8 +58,8 @@ class CalendarController extends Controller
     {
             $validator = Validator::make($request->all(), [
                 'date' => 'bail|required|date:after_or_equal:today',
-                'begin' => 'bail|required|time|after:now',
-                'end' => 'required:time:after:begin',
+                'timeBegin' => 'required|time',
+                'timeEnd' => 'required|time',
             ]);
         if ($validator->fails()) {
             return redirect('calendar/create')
