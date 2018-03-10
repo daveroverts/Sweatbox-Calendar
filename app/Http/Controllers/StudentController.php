@@ -61,8 +61,8 @@ class StudentController extends Controller
         $student->name = $request->name;
         $student->vatsim_id = $request->vatsim_id;
         $student->email = $request->email;
-        $student->rating = $request->rating;
-        $student->mentor = $request->mentor;
+        $student->rating_id = $request->rating;
+        $student->mentor_id = $request->mentor;
         $student->save();
         return redirect('/student');
     }

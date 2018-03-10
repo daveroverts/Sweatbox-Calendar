@@ -54,8 +54,8 @@ class CalendarController extends Controller
     {
             $validator = Validator::make($request->all(), [
                 'date' => 'bail|required|date:after_or_equal:today',
-                'timeBegin' => 'required|time',
-                'timeEnd' => 'required|time',
+                'timeBegin' => 'required',
+                'timeEnd' => 'required',
             ]);
         if ($validator->fails()) {
             return redirect('calendar/create')
@@ -64,12 +64,12 @@ class CalendarController extends Controller
         }
         $session = new Session();
         $session->user_id = Auth::id();
-        $session->student = $request->student;
+        $session->student_id = $request->student;
         $session->date = $request->date;
         $session->begin = $request->timeBegin;
         $session->end = $request->timeEnd;
         $session->description = $request->description;
-        $session->typeSession = $request->typeSession;
+        $session->typeSession_id = $request->typeSession;
         $session->save();
         return redirect('/calendar');
     }
