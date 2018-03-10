@@ -98,7 +98,7 @@ class CalendarController extends Controller
      */
     public function edit(Session $session)
     {
-        //
+        return redirect('/calendar');
     }
 
     /**

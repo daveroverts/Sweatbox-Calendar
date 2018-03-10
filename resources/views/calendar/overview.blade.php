@@ -43,7 +43,7 @@
                                     </form></td>
 
                                 <td><form action="/calendar/{{$session->id}}/edit">
-                                        <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit Session</button>
+                                        <button class="btn btn-primary" disabled><i class="fa fa-edit"></i> Edit Session</button>
                                         @csrf
                                     </form></td>
 
