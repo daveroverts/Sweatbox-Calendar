@@ -25,7 +25,7 @@
                                 <label for="student" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $student->name }}" required autofocus>
+                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $student->name }}" required autofocus disabled>
 
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback">

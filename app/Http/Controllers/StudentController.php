@@ -104,7 +104,6 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        $student->name = $request->name;
         $student->email = $request->email;
         $student->rating_id = $request->rating;
         $student->mentor_id = $request->mentor;
