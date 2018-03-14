@@ -92,7 +92,7 @@ class StudentController extends Controller
             $mentors = User::all();
             return view('student.edit', compact('student', 'id'))->with('ratings', $ratings)->with('mentors', $mentors);
         }
-        else return view('/calendar');
+        else return view('/student');
     }
 
     /**
