@@ -96,9 +96,15 @@ class CalendarController extends Controller
      * @param  \App\Session  $session
      * @return \Illuminate\Http\Response
      */
-    public function edit(Session $session)
+    public function edit($id)
     {
-        return redirect('/calendar');
+        if (Auth::check()){
+            $session = Session::find($id);
+            $students = Student::all();
+            $sessionTypes = SessionType::all();
+            return view('calendar.edit', compact('session', 'id'))->with('students', $students)->with('sessionTypes', $sessionTypes);
+        }
+        else return view('/calendar');
     }
 
     /**
@@ -110,10 +116,11 @@ class CalendarController extends Controller
      */
     public function update(Request $request, Session $session)
     {
-        $session->student = $request->student;
+        $session->student_id = $request->student;
         $session->date = $request->date;
         $session->begin = $request->begin;
         $session->end = $request->end;
+        $session->type = $request->type;
         $session->description = $request->description;
         $session->save();
         return redirect('/calendar');
