@@ -19,10 +19,10 @@ class CalendarController extends Controller
      */
     public function index()
     {
-        $sessions = Session::all()
-            ->sortByDesc('inProgress')
-            ->sortBy('date')
-            ->sortBy('begin');
+        $sessions = Session::orderBy('inProgress','DESC')
+            ->orderBy('date', 'ASC')
+            ->orderBy('begin')
+            ->get();
         return view('calendar.overview', compact('sessions'));
     }
 
