@@ -94,7 +94,7 @@
                                 <div class="col-md-6">
                                     <select class="custom-select" name="typeSession">
                                         @foreach($sessionTypes as $type)
-                                            <option name="typeSession" value="{{$type->id}}" {{ $type->id == $session->typeSession ? 'selected="selected"' : '' }}>{{ $type->name }}</option>
+                                            <option name="typeSession" value="{{$type->id}}" {{ $type->id == $session->typeSession_id ? 'selected="selected"' : '' }}>{{ $type->name }}</option>
                                         @endforeach
                                     </select>
 
