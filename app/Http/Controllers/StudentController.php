@@ -84,9 +84,15 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit($id)
     {
-        //
+        if (Auth::check()){
+            $student = Student::find($id);
+            $ratings = Rating::all();
+            $mentors = User::all();
+            return view('student.edit', compact('student', 'id'))->with('ratings', $ratings)->with('mentors', $mentors);
+        }
+        else return view('/calendar');
     }
 
     /**
@@ -98,7 +104,12 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $student->name = $request->name;
+        $student->email = $request->email;
+        $student->rating_id = $request->rating;
+        $student->mentor_id = $request->mentor;
+        $student->save();
+        return redirect('/student');
     }
 
     /**
