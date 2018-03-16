@@ -47,7 +47,7 @@
                                 <label for="date" class="col-md-4 col-form-label text-md-right"><i class="fa fa-calendar"></i> Date</label>
 
                                 <div class="col-md-6">
-                                    <input id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name="date" value="{{ $session->date }}" required autofocus>
+                                    <input id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name="date" value="{{ $session->date }}" required>
 
                                     @if ($errors->has('date'))
                                         <span class="invalid-feedback">
@@ -62,7 +62,7 @@
                                 <label for="timeBegin" class="col-md-4 col-form-label text-md-right"><i class="fa fa-clock-o fa-flip-horizontal"></i> Begin (UTC)</label>
 
                                 <div class="col-md-6">
-                                    <input id="timeBegin" type="time" class="form-control{{ $errors->has('timeEnd') ? ' is-invalid' : '' }}" name="timeBegin" value="{{ $session->begin }}" required autofocus>
+                                    <input id="timeBegin" type="time" class="form-control{{ $errors->has('timeEnd') ? ' is-invalid' : '' }}" name="timeBegin" value="{{ $session->begin }}" required>
 
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback">
@@ -77,7 +77,7 @@
                                 <label for="timeEnd" class="col-md-4 col-form-label text-md-right"><i class="fa fa-clock-o"></i> End (UTC)</label>
 
                                 <div class="col-md-6">
-                                    <input id="timeBegin" type="time" class="form-control{{ $errors->has('timeEnd') ? ' is-invalid' : '' }}" name="timeEnd" value="{{ $session->end }}" required autofocus>
+                                    <input id="timeBegin" type="time" class="form-control{{ $errors->has('timeEnd') ? ' is-invalid' : '' }}" name="timeEnd" value="{{ $session->end }}" required>
 
                                     @if ($errors->has('timeEnd'))
                                         <span class="invalid-feedback">
