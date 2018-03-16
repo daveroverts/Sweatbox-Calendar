@@ -27,9 +27,6 @@
                                 <div class="col-md-6">
                                     <select class="custom-select" name="student" autofocus>
                                         @foreach($students as $student)
-                                            {{--@if($student->id == $session->student_id)--}}
-                                                {{--@php(dd($student->name))--}}
-                                            {{--@endif--}}
                                             <option name="student" value="{{$student->id}}" {{ $student->id == $session->student_id ? 'selected="selected"' : '' }}>{{ $student->name }}</option>
                                         @endforeach
                                     </select>
