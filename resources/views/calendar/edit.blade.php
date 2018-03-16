@@ -25,7 +25,7 @@
                                 <label for="student" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Student</label>
 
                                 <div class="col-md-6">
-                                    <select class="custom-select" name="student">
+                                    <select class="custom-select" name="student" autofocus>
                                         @foreach($students as $student)
                                             {{--@if($student->id == $session->student_id)--}}
                                                 {{--@php(dd($student->name))--}}
