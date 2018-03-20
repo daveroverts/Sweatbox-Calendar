@@ -30,7 +30,7 @@ $carbon = new \Carbon\Carbon();
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-                    Current date/time: <?php echo $carbon::now('UTC')->format('l d-m-Y hi').'z' ?>
+                    Current date/time: <?php echo $carbon::now('UTC')->format('l d-m-Y Hi').'z' ?>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
