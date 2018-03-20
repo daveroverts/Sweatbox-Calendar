@@ -20,6 +20,7 @@ class CalendarController extends Controller
     public function index()
     {
         $sessions = Session::orderBy('inProgress','DESC')
+            ->orderBy('actualEnd','ASC')
             ->orderBy('date', 'ASC')
             ->orderBy('begin')
             ->get();

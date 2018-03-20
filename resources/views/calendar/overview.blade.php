@@ -20,6 +20,8 @@
                 @forelse($sessions as $session)
                     @if($session->inProgress == 1)
                         <tr class="table-info">
+                    @elseif(isset($session->actualEnd))
+                        <tr class="table-secondary">
                     @elseif($session->date < date('Y-m-d',strtotime('now')) && $session->inProgress == 0)
                         <tr class="table-danger">
                     @else
@@ -38,7 +40,11 @@
                                     </form></td>
                             @else
                                 <td><form action="/calendar/startSession/{{$session->id}}">
-                                        <button class="btn btn-success"><i class="fa fa-play"></i> Start Session</button>
+                                        @if(isset($session->actualEnd))
+                                            <button class="btn btn-success"><i class="fa fa-play"></i> Restart Session</button>
+                                        @else
+                                            <button class="btn btn-success"><i class="fa fa-play"></i> Start Session</button>
+                                        @endif
                                         @csrf
                                     </form></td>
 
