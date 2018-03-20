@@ -19,10 +19,11 @@ class CreateUsersTable extends Migration
             $table->string('vatsim_id', 7)->unique();
             $table->string('email')->unique();
             $table->string('password');
+            $table->boolean('isAdmin')->default('false');
             $table->rememberToken();
             $table->timestamps();
         });
-        DB::table('users')->insert(["name" => "Administrator", "vatsim_id" => 9999999, "email" => "admin@sweatbox.io", "password" => bcrypt('admin'), "created_at" => NOW(), "updated_at" => NOW()]);
+        DB::table('users')->insert(["name" => "Administrator", "vatsim_id" => 9999999, "email" => "admin@sweatbox.io", "password" => bcrypt('admin'), "isAdmin" => true, "created_at" => NOW(), "updated_at" => NOW()]);
     }
 
     /**
