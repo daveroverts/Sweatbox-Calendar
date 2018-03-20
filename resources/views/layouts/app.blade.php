@@ -1,3 +1,6 @@
+@php
+$carbon = new \Carbon\Carbon();
+@endphp
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -27,7 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-                    Current date/time: <?php echo date('D d-m-Y Hm',strtotime('now')).'z' ?>
+                    Current date/time: <?php echo $carbon::now('UTC')->format('l d-m-Y hi').'z' ?>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
