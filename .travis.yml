@@ -12,7 +12,9 @@ before_script:
   - composer install --no-interaction
   - cp .env.travis .env
 #  - pear install pear/PHP_CodeSniffer
-  - phpenv rehash
+#  - phpenv rehash
+  - php artisan generate:key
+  - php artisan config:clear
   - nvm install 7.7.1
   - npm install npm@latest -g
 #  - npm install -g jshint
