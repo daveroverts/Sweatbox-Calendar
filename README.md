@@ -1,4 +1,4 @@
-# Sweatbox Calendar
+# Sweatbox Calendar [![Build Status](https://travis-ci.org/daveroverts/Sweatbox-Calendar.svg?branch=travisTest)](https://travis-ci.org/daveroverts/Sweatbox-Calendar)
 
 ## About this project
 This project has been created using Laravel. The purpose was for me to learn Laravel, so I can use it for later projects.
