@@ -8,7 +8,7 @@ This project has been created using Laravel. The purpose was for me to learn Lar
 - Create/Edit/Remove students.
 - Create/Edit/Remove sessions.
 - Easy way to retrieve stats of student.
-- Session types can be edited to what's needed within your vACC
+- Session types can be edited to what's needed within your vACC.
 
 ## Installing
 These steps already assume you have a working PHP server to work with
@@ -21,6 +21,6 @@ These steps already assume you have a working PHP server to work with
     - At some point, a page will be created where you can edit the session types.
  1. Run ``php artisan migrate``
  1. Run ``php artisan serve``
- 1. Navigate to ``http://loclahost:8000``
+ 1. Navigate to ``http://localhost:8000``
  
  Default Login: ``Email: admin@sweatbox.io`` | ``Password: admin`` (can be changed after first login)
