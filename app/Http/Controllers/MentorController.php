@@ -18,7 +18,7 @@ class MentorController extends Controller
      */
     public function index()
     {
-        $mentors = User::all();
+        $mentors = User::all()->except(1);
         return view('mentor.overview', compact('mentors'));
     }
 
