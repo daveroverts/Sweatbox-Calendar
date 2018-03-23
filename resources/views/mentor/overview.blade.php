@@ -22,13 +22,14 @@
                             <td>{{ $mentor->name }}</td>
                             <td><a href="mailto:{{ $mentor->email }}">{{ $mentor->email }}</a></td>
                             <td>{{ $mentor->rating->longName }} [{{ $mentor->rating->shortName }}]</td>
-
+                            <td>
                             @if(Auth::user()->isAdmin())
-                                <td><form action="/mentor/{{$mentor->id}}/edit">
+                                <form action="/mentor/{{$mentor->id}}/edit">
                                         <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit Mentor</button>
+                                </form>
                                         @csrf
-                                    </form></td>
                             @endif
+                            </td>
                         </tr>
                         @empty
                             <p>No Mentors are in the system, consider adding one, using the button above</p>
