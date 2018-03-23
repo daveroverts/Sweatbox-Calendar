@@ -20,8 +20,6 @@ class CreateStudentsTable extends Migration
             $table->string('email')->unique();
             $table->integer('rating_id')->default(1);
             $table->integer('mentor_id')->nullable($value = true);
-            $table->foreign('mentor_id')->references('id')->on('users');
-            $table->foreign('rating_id')->references('id')->on('ratings');
             $table->timestamps();
         });
     }
