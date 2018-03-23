@@ -4,7 +4,9 @@
     <div class="container">
         @if(Auth::check())
             <h2>Mentors Overview</h2>
-            <a href="/mentor/create" class="btn btn-primary"><i class="fa fa-user-plus"></i> Add new Mentor</a>
+            @if(Auth::user()->isAdmin())
+                <a href="/mentor/create" class="btn btn-primary"><i class="fa fa-user-plus"></i> Add new Mentor</a>
+            @endif
             <br><br>
             <table class="table table-hover">
                 <thead><tr>
