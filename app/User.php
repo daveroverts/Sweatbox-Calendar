@@ -35,6 +35,10 @@ class User extends Authenticatable
         return $this->hasMany(Student::class);
     }
 
+    function rating(){
+        return $this->hasOne('App\Rating', 'id', 'rating_id');
+    }
+
     public function isAdmin(){
         if ($this->isAdmin == 1){
             return true;
