@@ -13,4 +13,4 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
-mix.browserSync('loc.sweatbox-calendar.daveroverts.nl');
+mix.browserSync('loc.sweatbox-calendar.daveroverts.io');
