@@ -32,6 +32,15 @@ class CreateForeignKeys extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('sessions', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['student_id']);
+            $table->dropForeign(['typeSession_id']);
+        });
+
+        Schema::table('students', function (Blueprint $table) {
+            $table->dropForeign(['mentor_id']);
+            $table->dropForeign(['rating_id']);
+        });
     }
 }
