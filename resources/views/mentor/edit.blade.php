@@ -92,14 +92,10 @@
                                     <button type="submit" class="btn btn-primary">
                                         <i class="fa fa-user-plus"></i> Edit
                                     </button>
-                                </div>
-                            </div>
-                        </form>
-                        {{--Delete--}}
-                        <form action="{{ route('mentor.destroy',$id) }}" method="POST">
-                            @method('DELETE')
-                            <button class="btn btn-danger"><i class="fa fa-calendar-minus-o"></i> Delete Mentor</button>
-                        @csrf
+                                    <button type="submit" class="btn btn-danger" formaction="{{ route('mentor.destroy', $id) }}">
+                                        @method('DELETE')
+                                        <i class="fa fa-calendar-minus-o"> Delete</i>
+                                    </button>
                                 </div>
                             </div>
                         </form>
