@@ -115,8 +115,11 @@ class MentorController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $mentor)
+    public function destroy($id)
     {
-        //
+        $mentor = User::find($id);
+        $mentor->delete();
+        return redirect('/mentor');
+
     }
 }
