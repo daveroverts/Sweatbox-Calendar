@@ -20,21 +20,6 @@
                         <form method="POST" action="{{ route('student.update', $id) }}">
                             @csrf
                             @method('PATCH')
-                            {{--Name--}}
-                            <div class="form-group row">
-                                <label for="student" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Name</label>
-
-                                <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $student->name }}" required autofocus disabled>
-
-                                    @if ($errors->has('name'))
-                                        <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
                             {{--Vatsim ID--}}
                             <div class="form-group row">
                                 <label for="vatsim_id" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Vatsim ID</label>
@@ -45,6 +30,21 @@
                                     @if ($errors->has('vatsim_id'))
                                         <span class="invalid-feedback">
                                         <strong>{{ $errors->first('vatsim_id') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            {{--Name--}}
+                            <div class="form-group row">
+                                <label for="student" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Name</label>
+
+                                <div class="col-md-6">
+                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $student->name }}" required autofocus disabled>
+
+                                    @if ($errors->has('name'))
+                                        <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                     @endif
                                 </div>
