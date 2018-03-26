@@ -31,7 +31,7 @@
                                 @endif</td>
                             <td>{{ $student->rating->longName }} [{{ $student->rating->shortName }}]</td>
 
-                            <td><form action="/student/{{$student->id}}/edit">
+                            <td><form action="{{ route('student.edit', $student->id) }}">
                                     <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit Student</button>
                                     @csrf
                                 </form></td>

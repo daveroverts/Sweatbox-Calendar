@@ -34,7 +34,7 @@
                             <td>{{ $session->begin }}z - {{ $session->end }}z</td>
 
                             @if($session->inProgress == 1)
-                                <td colspan="3"><form action="/calendar/stopSession/{{$session->id}}">
+                                <td colspan="3"><form action="{{ route('calendar.stopSession',$session->id) }}">
                                         <button class="btn btn-danger"><i class="fa fa-stop"></i> Stop Session</button>
                                         @csrf
                                     </form></td>
@@ -53,7 +53,7 @@
                                         @csrf
                                     </form></td>
 
-                                <td><form action="/calendar/{{$session->id}}" method="POST">
+                                <td><form action="{{ route('calendar.destroy', $session->id) }}" method="POST">
                                         @method('DELETE')
                                         <button class="btn btn-danger"><i class="fa fa-calendar-minus-o"></i> Delete Session</button>
                                         @csrf

@@ -26,7 +26,7 @@
                             <td>{{ $mentor->rating->longName }} [{{ $mentor->rating->shortName }}]</td>
                             <td>
                             @if(Auth::user()->isAdmin())
-                                <form action="/mentor/{{$mentor->id}}/edit">
+                                <form action="{{ route('mentor.edit',$mentor->id) }}">
                                         <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit Mentor</button>
                                 </form>
                                         @csrf
