@@ -12,7 +12,7 @@
                             @csrf
                             {{--Vatsim ID--}}
                             <div class="form-group row">
-                                <label for="vatsim_id" class="col-md-4 col-form-label text-md-right">Vatsim ID</label>
+                                <label for="vatsim_id" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Vatsim ID</label>
 
                                 <div class="col-md-6">
                                     <input id="vatsim_id" type="text" class="form-control{{ $errors->has('vatsim_id') ? ' is-invalid' : '' }}" name="vatsim_id" value="{{ old('vatsim_id') }}" required>
@@ -27,7 +27,7 @@
 
                             {{--Name--}}
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Name</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
@@ -42,7 +42,7 @@
 
                             {{--Email--}}
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address <i class="fa fa-envelope"></i></label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right"><i class="fa fa-envelope"></i> E-Mail</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
