@@ -78,7 +78,7 @@ class MentorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Student  $student
+     * @param  \App\User  $mentor
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -95,7 +95,7 @@ class MentorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Student  $student
+     * @param  \App\User  $mentor
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $mentor)
