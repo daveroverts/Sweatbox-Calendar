@@ -30,7 +30,7 @@ class MentorController extends Controller
     public function create()
     {
         if (Auth::check()) {
-            $ratings = Rating::all();
+            $ratings = Rating::all()->except([1,2]);
             return view('mentor.create')->with('ratings', $ratings);
         }
         else return redirect('/');
