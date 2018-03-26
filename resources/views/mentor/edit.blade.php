@@ -34,7 +34,7 @@
                                     @endif
                                 </div>
                             </div>
-                            
+
                             {{--Name--}}
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Name</label>
@@ -92,6 +92,14 @@
                                     <button type="submit" class="btn btn-primary">
                                         <i class="fa fa-user-plus"></i> Edit
                                     </button>
+                                </div>
+                            </div>
+                        </form>
+                        {{--Delete--}}
+                        <form action="{{ route('mentor.destroy',$id) }}" method="POST">
+                            @method('DELETE')
+                            <button class="btn btn-danger"><i class="fa fa-calendar-minus-o"></i> Delete Mentor</button>
+                        @csrf
                                 </div>
                             </div>
                         </form>
