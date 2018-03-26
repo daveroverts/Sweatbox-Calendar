@@ -88,7 +88,7 @@ class MentorController extends Controller
             $ratings = Rating::all();
             return view('mentor.edit', compact('mentor', 'id'))->with('ratings', $ratings);
         }
-        else return view('/student');
+        else return view('/mentor');
     }
 
     /**
