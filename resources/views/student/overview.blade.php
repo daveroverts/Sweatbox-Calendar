@@ -4,8 +4,10 @@
     <div class="container">
         @if(Auth::check())
             <h2>Students Overview</h2>
-            <a href="/student/create" class="btn btn-primary"><i class="fa fa-user-plus"></i> Add new Student</a>
-            <br><br>
+            @if(Auth::user()->isAdmin())
+                <a href="/student/create" class="btn btn-primary"><i class="fa fa-user-plus"></i> Add new Student</a>
+                <br><br>
+            @endif
             <table class="table table-hover">
                 <thead><tr>
                     <th>Vatsim ID</th>
@@ -35,7 +37,11 @@
                                 </form></td>
                         </tr>
                         @empty
-                            <p>No students are in the system, consider adding one, using the button above</p>
+                            @if(Auth::user()->isAdmin())
+                                <p>No students are in the system, consider adding one, using the button above</p>
+                                @else
+                                <p>No students are in the system, just wait till a admin adds one.</p>
+                                @endif
                         @endforelse
                 </tbody>
             </table>
