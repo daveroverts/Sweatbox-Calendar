@@ -14,7 +14,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Edit new student</div>
+                    <div class="card-header">Edit student</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('student.update', $id) }}">
