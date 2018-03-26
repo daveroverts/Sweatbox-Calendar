@@ -98,11 +98,10 @@ class MentorController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $mentor)
+    public function update(Request $request, User $mentor)
     {
         $mentor->email = $request->email;
         $mentor->rating_id = $request->rating;
-        $mentor->mentor_id = $request->mentor;
         $mentor->save();
         return redirect('/mentor');
     }
