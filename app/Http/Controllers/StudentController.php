@@ -18,8 +18,11 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
-        return view('student.overview', compact('students'));
+        if (Auth::check()){
+            $students = Student::all();
+            return view('student.overview', compact('students'));
+        }
+        else return redirect('/');
     }
 
     /**
@@ -29,7 +32,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        if (Auth::check()) {
+        if (Auth::check() && Auth::user()->isAdmin()) {
             $ratings = Rating::all();
             $mentors = User::all();
             return view('student.create')->with('ratings', $ratings)->with('mentors', $mentors);
@@ -84,7 +87,7 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        if (Auth::check()){
+        if (Auth::check() && Auth::user()->isAdmin()){
             $student = Student::find($id);
             $ratings = Rating::all();
             $mentors = User::all();

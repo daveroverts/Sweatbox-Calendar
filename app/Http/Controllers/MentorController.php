@@ -18,8 +18,11 @@ class MentorController extends Controller
      */
     public function index()
     {
-        $mentors = User::all()->except(1);
-        return view('mentor.overview', compact('mentors'));
+        if (Auth::check()){
+            $mentors = User::all()->except(1);
+            return view('mentor.overview', compact('mentors'));
+        }
+        else return redirect('/');
     }
 
     /**
@@ -29,11 +32,11 @@ class MentorController extends Controller
      */
     public function create()
     {
-        if (Auth::check()) {
+        if (Auth::check() && Auth::user()->isAdmin()) {
             $ratings = Rating::all()->except([1,2]);
             return view('mentor.create')->with('ratings', $ratings);
         }
-        else return redirect('/');
+        else return redirect('/mentor');
     }
 
     /**
