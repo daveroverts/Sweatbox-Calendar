@@ -20,6 +20,21 @@
                         <form method="POST" action="{{ route('mentor.update', $id) }}">
                             @csrf
                             @method('PATCH')
+                            {{--Vatsim ID--}}
+                            <div class="form-group row">
+                                <label for="vatsim_id" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Vatsim ID</label>
+
+                                <div class="col-md-6">
+                                    <input id="vatsim_id" type="text" class="form-control{{ $errors->has('vatsim_id') ? ' is-invalid' : '' }}" name="vatsim_id" value="{{ $mentor->vatsim_id }}" required autofocus disabled>
+
+                                    @if ($errors->has('vatsim_id'))
+                                        <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('vatsim_id') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            
                             {{--Name--}}
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Name</label>
@@ -45,21 +60,6 @@
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback">
                                         <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            {{--Vatsim ID--}}
-                            <div class="form-group row">
-                                <label for="vatsim_id" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Vatsim ID</label>
-
-                                <div class="col-md-6">
-                                    <input id="vatsim_id" type="text" class="form-control{{ $errors->has('vatsim_id') ? ' is-invalid' : '' }}" name="vatsim_id" value="{{ $mentor->vatsim_id }}" required autofocus disabled>
-
-                                    @if ($errors->has('vatsim_id'))
-                                        <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('vatsim_id') }}</strong>
                                     </span>
                                     @endif
                                 </div>
