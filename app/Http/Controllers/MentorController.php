@@ -85,7 +85,7 @@ class MentorController extends Controller
     {
         if (Auth::check()){
             $mentor = User::find($id);
-            $ratings = Rating::all();
+            $ratings = Rating::all()->except([1,2]);
             return view('mentor.edit', compact('mentor', 'id'))->with('ratings', $ratings);
         }
         else return view('/mentor');
