@@ -94,7 +94,7 @@
                                     </button>
                                     <button type="submit" class="btn btn-danger" formaction="{{ route('mentor.destroy', $id) }}">
                                         @method('DELETE')
-                                        <i class="fa fa-calendar-minus-o"> Delete</i>
+                                        <i class="fa fa-calendar-minus-o"></i> Delete
                                     </button>
                                 </div>
                             </div>
