@@ -17,7 +17,7 @@
                     <div class="card-header">Edit session</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('student.update', $id) }}">
+                        <form method="POST" action="{{ route('calendar.update', $id) }}">
                             @csrf
                             @method('PATCH')
                             {{--Student--}}

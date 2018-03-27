@@ -120,7 +120,7 @@ class CalendarController extends Controller
         $session->date = $request->date;
         $session->begin = $request->begin;
         $session->end = $request->end;
-        $session->type = $request->type;
+        $session->typeSession_id = $request->typeSession;
         $session->description = $request->description;
         $session->save();
         return redirect('/calendar');
