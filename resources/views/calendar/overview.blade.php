@@ -34,12 +34,12 @@
                             <td>{{ $session->begin }}z - {{ $session->end }}z</td>
 
                             @if($session->inProgress == 1)
-                                <td colspan="3"><form action="{{ route('calendar.stopSession',$session->id) }}">
+                                <td colspan="3"><form action="{{ route('calendar.stop',$session->id) }}">
                                         <button class="btn btn-danger"><i class="fa fa-stop"></i> Stop Session</button>
                                         @csrf
                                     </form></td>
                             @else
-                                <td><form action="/calendar/startSession/{{$session->id}}">
+                                <td><form action="{{ route('calendar.start',$session->id) }}">
                                         @if(isset($session->actualEnd))
                                             <button class="btn btn-success"><i class="fa fa-play"></i> Restart Session</button>
                                         @else

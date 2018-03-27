@@ -17,8 +17,8 @@ Auth::routes();
 
 //Calendar
 Route::resource('/calendar', 'CalendarController');
-Route::get('/calendar/startSession/{session}','CalendarController@startSession');
-Route::get('/calendar/stopSession/{session}','CalendarController@stopSession');
+Route::get('/calendar/startSession/{session}','CalendarController@startSession')->name('calendar.start');
+Route::get('/calendar/stopSession/{session}','CalendarController@stopSession')->name('calendar.stop');
 
 //Student
 Route::resource('/student', 'StudentController');
