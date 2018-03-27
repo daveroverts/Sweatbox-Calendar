@@ -107,7 +107,7 @@
                                         <i class="fa fa-user-plus"></i> Edit
                                     </button>
                                     <button type="submit" class="btn btn-danger" formaction="{{ route('mentor.destroy', $id) }}">
-                                        <i class="fa fa-calendar-minus-o"></i> Delete
+                                        <i class="fa fa-user-times"></i> Delete
                                     </button>
                                 </div>
                             </div>
