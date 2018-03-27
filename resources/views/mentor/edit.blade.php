@@ -86,7 +86,21 @@
                                 </div>
                             </div>
 
-                            {{--Edit--}}
+                            {{--Admin--}}
+                            <div class="form-group row">
+                                <label for="admin" class="col-md-4 col-form-label text-md-right">Admin</label>
+
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="1" name="admin" id="admin" {{ $mentor->isAdmin == true ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="admin">
+                                            Admin
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{--Edit/Delete--}}
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">

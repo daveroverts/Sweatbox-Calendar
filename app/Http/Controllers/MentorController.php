@@ -105,6 +105,10 @@ class MentorController extends Controller
     {
         $mentor->email = $request->email;
         $mentor->rating_id = $request->rating;
+        if ($request->admin){
+            $mentor->isAdmin = $request->admin;
+        }
+        else $mentor->isAdmin = 0;
         $mentor->save();
         return redirect('/mentor');
     }
