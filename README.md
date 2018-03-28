@@ -11,7 +11,7 @@ This project has been created using Laravel. The purpose was for me to learn Lar
 - Session types can be edited to what's needed within your vACC.
 
 ## Installing
-These steps already assume you have a working PHP server to work with (or go here https://laravel.com/docs/master/homestead)
+These steps already assume you have a working PHP (>= 7.1.3) server to work with (or go here https://laravel.com/docs/master/homestead)
  1. Clone/Download the repository
  1. Copy ``.env.example`` to ``.env``, and change data where needed. Only change the DB credentials as required.
     - At some point, emails will also be used to send reminders to mentors/students before a session (if they want).
