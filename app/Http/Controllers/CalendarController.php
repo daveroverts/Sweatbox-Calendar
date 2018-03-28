@@ -118,8 +118,8 @@ class CalendarController extends Controller
     {
         $session->student_id = $request->student;
         $session->date = $request->date;
-        $session->begin = $request->begin;
-        $session->end = $request->end;
+        $session->begin = $request->timeBegin;
+        $session->end = $request->timeEnd;
         $session->typeSession_id = $request->typeSession;
         $session->description = $request->description;
         $session->save();
