@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('rating_id')->default(3);
             $table->boolean('isAdmin')->default(0);
-            $table->foreign('rating_id')->references('id')->on('ratings');
 
             $table->rememberToken();
             $table->timestamps();
