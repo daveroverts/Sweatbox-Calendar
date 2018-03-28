@@ -114,8 +114,10 @@ class CalendarController extends Controller
      * @param  \App\Session  $session
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Session $session)
+    public function update(Request $request, $id)
     {
+        $session = Session::find($id);
+        $session->user_id = Auth::id();
         $session->student_id = $request->student;
         $session->date = $request->date;
         $session->begin = $request->timeBegin;
