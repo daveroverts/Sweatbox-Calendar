@@ -26,4 +26,10 @@ const app = new Vue({
     el: '#app'
 });
 
-$('#datepicker').datepicker();
+$('#datepicker').datepicker({
+    dateFormat: "dd-mm-yy",
+    minDate: 0,
+    showButtonPanel: true,
+    showOtherMonths: true,
+    selectOtherMonths: true
+});
