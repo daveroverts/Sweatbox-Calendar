@@ -115,7 +115,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary" form="editStudent">
-                                        <i class="fa fa-user-plus"></i> Edit
+                                        <i class="fa fa-user"></i> Edit
                                     </button>
                                     <button type="submit" class="btn btn-danger" form="deleteStudent">
                                         <i class="fa fa-user-times"></i> Delete
