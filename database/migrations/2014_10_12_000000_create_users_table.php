@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
 
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
         DB::table('users')->insert(["name" => "Administrator", "vatsim_id" => 9999999, "email" => "admin@sweatbox.io", "password" => bcrypt('admin'), "rating_id" => 3, "isAdmin" => 1, "created_at" => NOW(), "updated_at" => NOW()]);
     }

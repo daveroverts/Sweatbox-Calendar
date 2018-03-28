@@ -21,6 +21,7 @@ class CreateStudentsTable extends Migration
             $table->unsignedInteger('rating_id')->default(1);
             $table->unsignedInteger('mentor_id')->nullable($value = true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
