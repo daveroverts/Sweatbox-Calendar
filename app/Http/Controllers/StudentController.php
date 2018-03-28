@@ -63,7 +63,10 @@ class StudentController extends Controller
         $student->vatsim_id = $request->vatsim_id;
         $student->email = $request->email;
         $student->rating_id = $request->rating;
-        $student->mentor_id = $request->mentor;
+        if ($request->mentor == 0){
+            $student->mentor_id = null;
+        }
+        else $student->mentor_id = $request->mentor;
         $student->save();
         return redirect('/student');
     }
@@ -108,7 +111,10 @@ class StudentController extends Controller
         $student = Student::find($id);
         $student->email = $request->email;
         $student->rating_id = $request->rating;
-        $student->mentor_id = $request->mentor;
+        if ($request->mentor == 0){
+            $student->mentor_id = null;
+        }
+        else $student->mentor_id = $request->mentor;
         $student->save();
         return redirect('/student');
     }
