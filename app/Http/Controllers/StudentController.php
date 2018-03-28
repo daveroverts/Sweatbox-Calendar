@@ -103,8 +103,9 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, $id)
     {
+        $student = Student::find($id);
         $student->email = $request->email;
         $student->rating_id = $request->rating;
         $student->mentor_id = $request->mentor;

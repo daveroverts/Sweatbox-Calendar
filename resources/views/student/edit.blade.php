@@ -112,10 +112,10 @@
                                     <button type="submit" class="btn btn-primary">
                                         <i class="fa fa-user-plus"></i> Edit
                                     </button>
-                                    <button type="submit" class="btn btn-danger" formaction="{{ route('student.destroy', $id) }}">
-                                        @method('DELETE')
-                                        <i class="fa fa-user-times"></i> Delete
-                                    </button>
+                                    {{--<button type="submit" class="btn btn-danger" formaction="{{ route('student.destroy', $id) }}">--}}
+                                        {{--@method('DELETE')--}}
+                                        {{--<i class="fa fa-user-times"></i> Delete--}}
+                                    {{--</button>--}}
                                 </div>
                             </div>
                         </form>
