@@ -106,7 +106,19 @@
                                     <button type="submit" class="btn btn-primary">
                                         <i class="fa fa-user-plus"></i> Edit
                                     </button>
-                                    <button type="submit" class="btn btn-danger" formaction="{{ route('mentor.destroy', $id) }}">
+                                    {{--<button type="submit" class="btn btn-danger" formaction="{{ route('mentor.destroy', $id) }}">--}}
+                                        {{--<i class="fa fa-user-times"></i> Delete--}}
+                                    {{--</button>--}}
+                                </div>
+                            </div>
+                        </form>
+                        <form action="{{ route('mentor.destroy', $mentor->id) }}" method="POST">
+                            {{--Edit/Delete--}}
+                            @csrf
+                            @method('DELETE')
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-danger">
                                         <i class="fa fa-user-times"></i> Delete
                                     </button>
                                 </div>
