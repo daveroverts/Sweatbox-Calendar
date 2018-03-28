@@ -91,7 +91,7 @@
 
                                 <div class="col-md-6">
                                     <select class="custom-select" name="mentor">
-                                        <option name="mentor" value="0">None</option>
+                                        <option name="mentor" value="">None</option>
                                         @foreach($mentors as $mentor)
                                             <option name="mentor" value="{{$mentor->id}}">{{ $mentor->name }} [{{ $mentor->vatsim_id }}]</option>
                                         @endforeach
