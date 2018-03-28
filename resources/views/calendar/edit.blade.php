@@ -108,7 +108,7 @@
                                 <label for="description" class="col-md-4 col-form-label text-md-right"><i class="fa fa-bars"></i> Description</label>
 
                                 <div class="col-md-6">
-                                    <textarea name="description" class="form-control"></textarea>
+                                    <textarea name="description" class="form-control">{{ $session->description }}</textarea>
                                 </div>
                             </div>
 
