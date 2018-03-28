@@ -44,7 +44,7 @@
                                 <label for="date" class="col-md-4 col-form-label text-md-right"><i class="fa fa-calendar"></i> Date</label>
 
                                 <div class="col-md-6">
-                                    <input id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name="date" value="{{ old('date') }}" required>
+                                    <input id="datepicker" type="text" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name="date" value="{{ old('date') }}" required>
 
                                     @if ($errors->has('date'))
                                         <span class="invalid-feedback">
