@@ -17,7 +17,7 @@
                     <div class="card-header">Edit mentor</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('mentor.update', $id) }}">
+                        <form method="POST" action="{{ route('mentor.update', $id) }}" id="editMentor">
                             @csrf
                             @method('PATCH')
                             {{--Vatsim ID--}}
@@ -99,31 +99,23 @@
                                     </div>
                                 </div>
                             </div>
+                        </form>
+                            <form action="{{ route('mentor.destroy', $id) }}" method="POST" id="deleteMentor">
+                                @csrf
+                                @method('DELETE')
+                            </form>
 
-                            {{--Edit/Delete--}}
+                            {{--Edit / Delete--}}
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" form="editMentor">
                                         <i class="fa fa-user-plus"></i> Edit
                                     </button>
-                                    {{--<button type="submit" class="btn btn-danger" formaction="{{ route('mentor.destroy', $id) }}">--}}
-                                        {{--<i class="fa fa-user-times"></i> Delete--}}
-                                    {{--</button>--}}
-                                </div>
-                            </div>
-                        </form>
-                        <form action="{{ route('mentor.destroy', $mentor->id) }}" method="POST">
-                            {{--Edit/Delete--}}
-                            @csrf
-                            @method('DELETE')
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-danger">
+                                    <button type="submit" class="btn btn-danger" form="deleteMentor">
                                         <i class="fa fa-user-times"></i> Delete
                                     </button>
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>

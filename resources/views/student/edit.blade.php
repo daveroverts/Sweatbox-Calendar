@@ -17,7 +17,7 @@
                     <div class="card-header">Edit student</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('student.update', $id) }}">
+                        <form method="POST" action="{{ route('student.update', $id) }}" id="editStudent">
                             @csrf
                             @method('PATCH')
                             {{--Vatsim ID--}}
@@ -105,28 +105,23 @@
                                     @endif
                                 </div>
                             </div>
+                        </form>
+                        <form action="{{ route('student.destroy', $id) }}" method="POST" id="deleteStudent">
+                            @csrf
+                            @method('DELETE')
+                        </form>
 
                             {{--Edit / Delete--}}
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" form="editStudent">
                                         <i class="fa fa-user-plus"></i> Edit
                                     </button>
-                                </div>
-                            </div>
-                        </form>
-                        <form action="{{ route('student.destroy', $id) }}" method="POST">
-                            {{--Edit/Delete--}}
-                            @csrf
-                            @method('DELETE')
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-danger">
+                                    <button type="submit" class="btn btn-danger" form="deleteStudent">
                                         <i class="fa fa-user-times"></i> Delete
                                     </button>
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>
