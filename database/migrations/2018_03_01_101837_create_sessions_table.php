@@ -15,7 +15,7 @@ class CreateSessionsTable extends Migration
     {
         Schema::create('sessions', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id')->index();
+            $table->unsignedInteger('mentor_id')->index();
             $table->unsignedInteger('student_id')->index();
             $table->date('date');
             $table->time('begin');
