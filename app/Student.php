@@ -25,8 +25,8 @@ class Student extends Model
      */
     protected $dates = ['deleted_at'];
 
-    public function currentMentor(){
-        return $this->hasOne('App\User', 'id','mentor_id');
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
     public function currentMentor(){
