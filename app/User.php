@@ -40,6 +40,10 @@ class User extends Authenticatable
         return $this->hasOne('App\Rating', 'id', 'rating_id');
     }
 
+    public function student(){
+        return $this->belongsTo(Student::class);
+    }
+
     public function mentor(){
         return $this->belongsTo(Mentor::class);
     }
