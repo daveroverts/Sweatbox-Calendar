@@ -25,7 +25,7 @@
                                 <label for="vatsim_id" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Vatsim ID</label>
 
                                 <div class="col-md-6">
-                                    <input id="vatsim_id" type="text" class="form-control{{ $errors->has('vatsim_id') ? ' is-invalid' : '' }}" name="vatsim_id" value="{{ $student->vatsim_id }}" required autofocus disabled>
+                                    <input id="vatsim_id" type="text" class="form-control{{ $errors->has('vatsim_id') ? ' is-invalid' : '' }}" name="vatsim_id" value="{{ $student->user->vatsim_id }}" required autofocus disabled>
 
                                     @if ($errors->has('vatsim_id'))
                                         <span class="invalid-feedback">
@@ -40,7 +40,7 @@
                                 <label for="student" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $student->name }}" required autofocus disabled>
+                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $student->user->name }}" required autofocus disabled>
 
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback">
@@ -55,7 +55,7 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right"><i class="fa fa-envelope"></i> E-mail</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $student->email }}" required autofocus>
+                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $student->user->email }}" required autofocus>
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback">
@@ -72,7 +72,7 @@
                                 <div class="col-md-6">
                                     <select class="custom-select" name="rating">
                                         @foreach($ratings as $rating)
-                                            <option name="rating" value="{{$rating->id}}" {{ $student->rating->id == $rating->id ? 'selected="selected"' : '' }}>{{ $rating->longName }} [{{ $rating->shortName }}]</option>
+                                            <option name="rating" value="{{$rating->id}}" {{ $student->user->rating->id == $rating->id ? 'selected="selected"' : '' }}>{{ $rating->longName }} [{{ $rating->shortName }}]</option>
                                         @endforeach
                                     </select>
 
