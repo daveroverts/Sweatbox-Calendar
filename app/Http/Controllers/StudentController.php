@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Student;
 use App\Rating;
+use App\Mentor;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
@@ -34,7 +35,7 @@ class StudentController extends Controller
     {
         if (Auth::check() && Auth::user()->isAdmin()) {
             $ratings = Rating::all();
-            $mentors = User::all();
+            $mentors = Mentor::all();
             return view('student.create')->with('ratings', $ratings)->with('mentors', $mentors);
         }
         else return redirect('/');
@@ -51,18 +52,22 @@ class StudentController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'bail|required|string',
             'vatsim_id' => 'required|numeric|digits_between:6,7',
-            'email' => 'required|email|max:255|unique:students',
+            'email' => 'required|email|max:255|unique:users',
         ]);
         if ($validator->fails()) {
             return redirect('student/create')
                 ->withErrors($validator)
                 ->withInput();
         }
+        $user = new User();
+        $user->name = $request->name;
+        $user->vatsim_id = $request->vatsim_id;
+        $user->email = $request->email;
+        $user->rating_id = $request->rating;
+        $user->save();
+
         $student = new Student();
-        $student->name = $request->name;
-        $student->vatsim_id = $request->vatsim_id;
-        $student->email = $request->email;
-        $student->rating_id = $request->rating;
+        $student->user_id = $user->id;
         $student->mentor_id = $request->mentor;
         $student->save();
         return redirect('/student');
