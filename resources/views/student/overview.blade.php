@@ -21,15 +21,15 @@
                 <tbody>
                 @forelse($students as $student)
                         <tr>
-                            <td><a href="https://stats.vatsim.net/search_id.php?id={{ $student->vatsim_id }}">{{ $student->vatsim_id }}</a></td>
-                            <td>{{ $student->name }}</td>
-                            <td><a href="mailto:{{ $student->email }}">{{ $student->email }}</a></td>
+                            <td><a href="https://stats.vatsim.net/search_id.php?id={{ $student->user->vatsim_id }}">{{ $student->user->vatsim_id }}</a></td>
+                            <td>{{ $student->user->name }}</td>
+                            <td><a href="mailto:{{ $student->user->email }}">{{ $student->user->email }}</a></td>
                             <td>@if(isset($student->currentMentor->name))
                                     {{ $student->currentMentor->name }}
                                 @else
                                     -
                                 @endif</td>
-                            <td>{{ $student->rating->longName }} [{{ $student->rating->shortName }}]</td>
+                            <td>{{ $student->user->rating->longName }} [{{ $student->user->rating->shortName }}]</td>
 
                             <td>
                                 @if(Auth::user()->isAdmin())
