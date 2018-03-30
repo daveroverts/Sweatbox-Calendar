@@ -59,6 +59,7 @@ class StudentController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
+        //First create the user
         $user = new User();
         $user->name = $request->name;
         $user->vatsim_id = $request->vatsim_id;
@@ -66,6 +67,7 @@ class StudentController extends Controller
         $user->rating_id = $request->rating;
         $user->save();
 
+        //When User has been saved, create the student.
         $student = new Student();
         $student->user_id = $user->id;
         $student->mentor_id = $request->mentor;
