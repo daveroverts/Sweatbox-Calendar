@@ -95,7 +95,7 @@ class StudentController extends Controller
         if (Auth::check() && Auth::user()->isAdmin()){
             $student = Student::find($id);
             $ratings = Rating::all();
-            $mentors = User::all();
+            $mentors = Mentor::all();
             return view('student.edit', compact('student', 'id'))->with('ratings', $ratings)->with('mentors', $mentors);
         }
         else return view('/student');
@@ -110,11 +110,17 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //First, save/delete mentor (if changed)
         $student = Student::find($id);
-        $student->email = $request->email;
-        $student->rating_id = $request->rating;
         $student->mentor_id = $request->mentor;
         $student->save();
+
+        //Then, change email and rating
+        $user = User::find($student->user_id);
+        $user->email = $request->email;
+        $user->rating_id = $request->rating;
+        $user->save();
+
         return redirect('/student');
     }
 
