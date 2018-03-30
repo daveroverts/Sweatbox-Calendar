@@ -21,8 +21,8 @@ class CreateMentorActionsTable extends Migration
 
         //Inserting all the types of actions that are available
         $actions = [
-            ['name' => 'S1 mentor [DEL] [GND]',  'description' => "Person is a Student mentor, and is allowed to mentor Delivery [DEL], and Ground [GND] students"],
-            ['name' => 'S2 mentor [TWR]',  'description' => "Person is a Student 2 mentor, and is allowed to mentor Tower [TWR] students"],
+            ['name' => 'S1 mentor [DEL]',  'description' => "Person is a Student mentor, and is allowed to mentor Delivery [DEL] students"],
+            ['name' => 'S1/S2 mentor [GND] [TWR]',  'description' => "Person is a Student 2 mentor, and is allowed to mentor Ground [GND], and Tower [TWR] students"],
             ['name' => 'S3 mentor [APP]',  'description' => "Person is a Senior Student [S3] mentor, and is allowed to mentor Approach [APP] students"],
             ['name' => 'C1 mentor [ACC]',  'description' => "Person is a Controller [C1] mentor, and is allowed to mentor Radar [ACC] students"],
 
