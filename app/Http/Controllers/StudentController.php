@@ -134,7 +134,13 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        Student::find($id)->delete();
+        //First, get remove the mentor from student
+        $student = Student::find($id);
+        $student->mentor_id = null;
+        $student->save();
+        //Then, delete student
+        User::find($student->user_id)->delete();
+        $student->delete();
         return redirect('/student');
     }
 }
