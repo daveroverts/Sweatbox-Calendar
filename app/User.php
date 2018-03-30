@@ -36,16 +36,12 @@ class User extends Authenticatable
      */
     protected $dates = ['deleted_at'];
 
-    public function sessions(){
-        return $this->hasMany(Session::class);
-    }
-
-    public function students(){
-        return $this->hasMany(Student::class);
-    }
-
     function rating(){
         return $this->hasOne('App\Rating', 'id', 'rating_id');
+    }
+
+    public function mentor(){
+        return $this->belongsTo(Mentor::class);
     }
 
     public function isAdmin(){

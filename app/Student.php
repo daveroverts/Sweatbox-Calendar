@@ -29,7 +29,7 @@ class Student extends Model
         return $this->hasOne('App\User', 'id','mentor_id');
     }
 
-    function rating(){
-        return $this->hasOne('App\Rating', 'id', 'rating_id');
+    public function currentMentor(){
+        return $this->hasOne('App\Mentor', 'id','mentor_id');
     }
 }
