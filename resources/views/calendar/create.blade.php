@@ -74,7 +74,7 @@
                                 <label for="timeEnd" class="col-md-4 col-form-label text-md-right"><i class="fa fa-clock-o"></i> End (UTC)</label>
 
                                 <div class="col-md-6">
-                                    <input id="timeBegin" type="time" class="form-control{{ $errors->has('timeEnd') ? ' is-invalid' : '' }}" name="timeEnd" value="{{ old('timeEnd') }}" required>
+                                    <input id="timeEnd" type="time" class="form-control{{ $errors->has('timeEnd') ? ' is-invalid' : '' }}" name="timeEnd" value="{{ old('timeEnd') }}" required>
 
                                     @if ($errors->has('timeEnd'))
                                         <span class="invalid-feedback">
