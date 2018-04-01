@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Action;
 use App\Mentor;
 use App\Student;
-use App\Rating;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
@@ -67,15 +67,15 @@ class MentorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $mentor
+     * @param  \App\Mentor  $mentor
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         if (Auth::check()){
-            $mentor = User::find($id);
-            $ratings = Rating::all()->except([1,2]);
-            return view('mentor.edit', compact('mentor', 'id'))->with('ratings', $ratings);
+            $mentor = Mentor::find($id);
+            $actions = Action::all();
+            return view('mentor.edit', compact('mentor', 'id'))->with('actions', $actions);
         }
         else return view('/mentor');
     }
@@ -87,27 +87,31 @@ class MentorController extends Controller
      * @param  \App\User  $mentor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $mentor)
+    public function update(Request $request, Mentor $mentor)
     {
-        $mentor->email = $request->email;
-        $mentor->rating_id = $request->rating;
-        if ($request->admin){
-            $mentor->isAdmin = $request->admin;
-        }
-        else $mentor->isAdmin = 0;
+        //First, save the mentor type (mentors)
+        $mentor->action_id = $request->typeMentor;
         $mentor->save();
+
+        //Then, save admin setting (users)
+        $user = User::find($mentor->user_id);
+        if ($request->admin){
+            $user->isAdmin = $request->admin;
+        }
+        else $user->isAdmin = 0;
+        $user->save();
         return redirect('/mentor');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Student  $student
+     * @param  \App\Mentor
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        User::find($id)->delete();
+        Mentor::find($id)->delete();
         return redirect('/mentor');
 
     }

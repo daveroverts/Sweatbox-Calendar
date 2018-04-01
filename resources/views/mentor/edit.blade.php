@@ -25,7 +25,7 @@
                                 <label for="vatsim_id" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Vatsim ID</label>
 
                                 <div class="col-md-6">
-                                    <input id="vatsim_id" type="text" class="form-control{{ $errors->has('vatsim_id') ? ' is-invalid' : '' }}" name="vatsim_id" value="{{ $mentor->vatsim_id }}" required autofocus disabled>
+                                    <input id="vatsim_id" type="text" class="form-control{{ $errors->has('vatsim_id') ? ' is-invalid' : '' }}" name="vatsim_id" value="{{ $mentor->user->vatsim_id }}" disabled>
 
                                     @if ($errors->has('vatsim_id'))
                                         <span class="invalid-feedback">
@@ -40,7 +40,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $mentor->name }}" required autofocus disabled>
+                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $mentor->user->name }}" required autofocus disabled>
 
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback">
@@ -55,7 +55,7 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right"><i class="fa fa-envelope"></i> E-mail</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $mentor->email }}" required autofocus>
+                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $mentor->user->email }}" disabled>
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback">
@@ -70,13 +70,7 @@
                                 <label for="rating" class="col-md-4 col-form-label text-md-right"><i class="fa fa-list-ul"></i> Rating</label>
 
                                 <div class="col-md-6">
-                                    <select class="custom-select" name="rating">
-                                        @foreach($ratings as $rating)
-                                            <option name="rating" value="{{$rating->id}}" {{ $mentor->rating->id == $rating->id ? 'selected="selected"' : '' }}>{{ $rating->longName }} [{{ $rating->shortName }}]</option>
-                                        @endforeach
-                                    </select>
-
-
+                                    <input id="rating" type="text" class="form-control{{ $errors->has('rating') ? ' is-invalid' : '' }}" name="rating" value="{{ $mentor->user->rating->longName }} [{{ $mentor->user->rating->shortName }}]" disabled>
 
                                     @if ($errors->has('rating'))
                                         <span class="invalid-feedback">
@@ -86,13 +80,26 @@
                                 </div>
                             </div>
 
+                            {{--Rating--}}
+                            <div class="form-group row">
+                                <label for="typeMentor" class="col-md-4 col-form-label text-md-right"><i class="fa fa-list-ul"></i> Type</label>
+
+                                <div class="col-md-6">
+                                    <select class="custom-select" name="typeMentor">
+                                        @foreach($actions as $action)
+                                            <option name="typeMentor" value="{{$action->id}}" {{ $mentor->action->id == $action->id ? 'selected="selected"' : '' }}>{{ $action->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
                             {{--Admin--}}
                             <div class="form-group row">
                                 <label for="admin" class="col-md-4 col-form-label text-md-right">Admin</label>
 
                                 <div class="col-md-6">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="1" name="admin" id="admin" {{ $mentor->isAdmin == true ? 'checked' : '' }}>
+                                        <input class="form-check-input" type="checkbox" value="1" name="admin" id="admin" {{ $mentor->user->isAdmin == true ? 'checked' : '' }}>
                                         <label class="form-check-label" for="admin">
                                             Admin
                                         </label>
