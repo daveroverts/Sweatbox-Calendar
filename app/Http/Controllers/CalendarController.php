@@ -6,6 +6,7 @@ use App\Session;
 use App\SessionType;
 use App\Student;
 Use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use DB;
@@ -65,7 +66,7 @@ class CalendarController extends Controller
         $session = new Session();
         $session->mentor_id = Auth::id();
         $session->student_id = $request->student;
-        $session->date = $request->date;
+        $session->date = Carbon::createFromFormat('d-m-Y',$request->date)->toDateString();
         $session->begin = $request->timeBegin;
         $session->end = $request->timeEnd;
         $session->description = $request->description;
