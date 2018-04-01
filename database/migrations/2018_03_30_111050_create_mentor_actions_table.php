@@ -28,7 +28,7 @@ class CreateMentorActionsTable extends Migration
 
 
         ];
-        DB::table('actions')->insert($actions);
+        DB::table('mentor_actions')->insert($actions);
     }
 
     /**
