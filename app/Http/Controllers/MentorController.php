@@ -33,7 +33,8 @@ class MentorController extends Controller
     public function create()
     {
         if (Auth::check() && Auth::user()->isAdmin()) {
-            $students = Student::all();
+            $mentors = Mentor::pluck('id');
+            $students = Student::whereNotIn('user_id', $mentors)->get();
             return view('mentor.create')->with('students', $students);
         }
         else return redirect('/mentor');
