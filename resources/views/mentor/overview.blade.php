@@ -14,6 +14,7 @@
                     <th>Name</th>
                     <th>E-Mail</th>
                     <th>Rating</th>
+                    <th>Type</th>
                     <th colspan="3">Actions</th>
                 </tr>
                 </thead>
@@ -24,6 +25,7 @@
                             <td>{{ $mentor->user->name }}</td>
                             <td><a href="mailto:{{ $mentor->user->email }}">{{ $mentor->user->email }}</a></td>
                             <td>{{ $mentor->user->rating->longName }} [{{ $mentor->user->rating->shortName }}]</td>
+                            <td><p data-toggle="tooltip" data-placement="top" title="{{ $mentor->action->description }}">{{ $mentor->action->name }}</p></td>
                             <td>
                             @if(Auth::user()->isAdmin())
                                 <form action="{{ route('mentor.edit',$mentor->id) }}">
