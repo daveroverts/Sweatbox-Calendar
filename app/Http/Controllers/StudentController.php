@@ -97,7 +97,7 @@ class StudentController extends Controller
         if (Auth::check() && Auth::user()->isAdmin()){
             $student = Student::find($id);
             $ratings = Rating::all();
-            $mentors = Mentor::all();
+            $mentors = Mentor::all()->except($student->user->id);
             return view('student.edit', compact('student', 'id'))->with('ratings', $ratings)->with('mentors', $mentors);
         }
         else return view('/student');
