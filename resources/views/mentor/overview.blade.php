@@ -20,10 +20,10 @@
                 <tbody>
                 @forelse($mentors as $mentor)
                         <tr>
-                            <td><a href="https://stats.vatsim.net/search_id.php?id={{ $mentor->vatsim_id }}">{{ $mentor->vatsim_id }}</a></td>
-                            <td>{{ $mentor->name }}</td>
-                            <td><a href="mailto:{{ $mentor->email }}">{{ $mentor->email }}</a></td>
-                            <td>{{ $mentor->rating->longName }} [{{ $mentor->rating->shortName }}]</td>
+                            <td><a href="https://stats.vatsim.net/search_id.php?id={{ $mentor->user->vatsim_id }}">{{ $mentor->user->vatsim_id }}</a></td>
+                            <td>{{ $mentor->user->name }}</td>
+                            <td><a href="mailto:{{ $mentor->user->email }}">{{ $mentor->user->email }}</a></td>
+                            <td>{{ $mentor->user->rating->longName }} [{{ $mentor->user->rating->shortName }}]</td>
                             <td>
                             @if(Auth::user()->isAdmin())
                                 <form action="{{ route('mentor.edit',$mentor->id) }}">
