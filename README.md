@@ -23,4 +23,4 @@ These steps already assume you have a working PHP (>= 7.1.3) server to work with
  1. Run ``php artisan serve`` to start a local PHP server. You can also wish to use something like XAMPP to create new local domain, but I won't explain how to do that.
  1. Navigate to ``http://localhost:8000`` (or whatever you have setup as said before).
  
- Default Login: ``Email: admin@sweatbox.io`` | ``Password: admin`` (can be changed after first login)
+ Default Login: ``Email: admin@sweatbox.io`` | ``Password: admin`` (can be changed after first login). It is recommended to only use this account to create some initial data, then to use that data to work with all other data.
