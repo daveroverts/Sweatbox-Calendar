@@ -27,7 +27,7 @@
                                 <div class="col-md-6">
                                     <select class="custom-select" name="student" autofocus>
                                         @foreach($students as $student)
-                                            <option name="student" value="{{$student->id}}" {{ $student->id == $session->student_id ? 'selected="selected"' : '' }}>{{ $student->name }}</option>
+                                            <option name="student" value="{{$student->id}}" {{ $student->id == $session->student_id ? 'selected="selected"' : '' }}>{{ $student->user->name }}</option>
                                         @endforeach
                                     </select>
 
