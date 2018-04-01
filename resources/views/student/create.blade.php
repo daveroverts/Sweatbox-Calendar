@@ -93,7 +93,7 @@
                                     <select class="custom-select" name="mentor">
                                         <option name="mentor" value="">None</option>
                                         @foreach($mentors as $mentor)
-                                            <option name="mentor" value="{{$mentor->id}}">{{ $mentor->name }} [{{ $mentor->vatsim_id }}]</option>
+                                            <option name="mentor" value="{{$mentor->id}}">{{ $mentor->user->name }} [{{ $mentor->user->vatsim_id }}]</option>
                                         @endforeach
                                     </select>
 
