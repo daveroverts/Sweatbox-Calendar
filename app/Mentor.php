@@ -19,6 +19,6 @@ class Mentor extends Model
     }
 
     public function action(){
-        return $this->hasOne(Action::class,'id');
+        return $this->hasOne(Action::class,'id','action_id');
     }
 }
