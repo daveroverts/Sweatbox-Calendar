@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mentor;
 use App\Student;
 use App\Rating;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class MentorController extends Controller
 {
@@ -19,7 +19,7 @@ class MentorController extends Controller
     public function index()
     {
         if (Auth::check()){
-            $mentors = User::all()->except(1);
+            $mentors = Mentor::all();
             return view('mentor.overview', compact('mentors'));
         }
         else return redirect('/');
@@ -33,8 +33,8 @@ class MentorController extends Controller
     public function create()
     {
         if (Auth::check() && Auth::user()->isAdmin()) {
-            $ratings = Rating::all()->except([1,2]);
-            return view('mentor.create')->with('ratings', $ratings);
+            $students = Student::all();
+            return view('mentor.create')->with('students', $students);
         }
         else return redirect('/mentor');
     }
@@ -47,22 +47,8 @@ class MentorController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'bail|required|string',
-            'vatsim_id' => 'required|numeric|digits_between:6,7',
-            'email' => 'required|email|max:255|unique:students',
-        ]);
-        if ($validator->fails()) {
-            return redirect('mentor/create')
-                ->withErrors($validator)
-                ->withInput();
-        }
-        $mentor = new User();
-        $mentor->name = $request->name;
-        $mentor->vatsim_id = $request->vatsim_id;
-        $mentor->email = $request->email;
-        $mentor->rating_id = $request->rating;
-        $mentor->password = bcrypt('Password');
+        $mentor = new Mentor();
+        $mentor->user_id = $request->student;
         $mentor->save();
         return redirect('/mentor');
     }
