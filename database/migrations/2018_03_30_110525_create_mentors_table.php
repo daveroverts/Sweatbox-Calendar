@@ -16,6 +16,7 @@ class CreateMentorsTable extends Migration
         Schema::create('mentors', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
+            $table->unsignedInteger('action_id')->default(1);
             $table->timestamps();
         });
     }

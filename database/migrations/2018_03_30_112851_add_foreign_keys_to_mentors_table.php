@@ -15,6 +15,7 @@ class AddForeignKeysToMentorsTable extends Migration
     {
         Schema::table('mentors', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('action_id')->references('id')->on('mentor_actions');
         });
     }
 
@@ -27,6 +28,7 @@ class AddForeignKeysToMentorsTable extends Migration
     {
         Schema::table('mentors', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
+            $table->dropForeign(['action_id']);
         });
     }
 }
