@@ -17,4 +17,8 @@ class Mentor extends Model
     public function students(){
         return $this->hasMany(Student::class);
     }
+
+    public function action(){
+        return $this->hasOne(Action::class,'id');
+    }
 }
