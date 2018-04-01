@@ -50,8 +50,8 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'bail|required|string',
-            'vatsim_id' => 'required|numeric|digits_between:6,7',
+            'vatsim_id' => 'bail|required|numeric|digits_between:6,7|unique:users',
+            'name' => 'required|string',
             'email' => 'required|email|max:255|unique:users',
         ]);
         if ($validator->fails()) {
