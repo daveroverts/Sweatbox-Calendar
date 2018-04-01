@@ -24,3 +24,4 @@ These steps already assume you have a working PHP (>= 7.1.3) server to work with
  1. Navigate to ``http://localhost:8000`` (or whatever you have setup as said before).
  
  Default Login: ``Email: admin@sweatbox.io`` | ``Password: admin`` (can be changed after first login). It is recommended to only use this account to create some initial data, then to use that data to work with all other data.
+Default password for new students/mentors: ``Password`` (subject to change before v1.0.0 is live)
