@@ -31,7 +31,7 @@
                             <td><a href="https://stats.vatsim.net/search_id.php?id={{ $session->student->user->vatsim_id }}">{{ $session->student->user->name }}</a></td>
                             <td>{{ $session->type->name }}</td>
                             <td>{{ date('d-m-Y', strtotime($session->date)) }}</td>
-                            <td>{{ $session->begin }}z - {{ $session->end }}z</td>
+                            <td>{{ date('Hi', strtotime($session->begin)) }}z - {{ date('Hi', strtotime($session->end)) }}z</td>
 
                             @if($session->inProgress == 1)
                                 <td colspan="3"><form action="{{ route('calendar.stop',$session->id) }}">
