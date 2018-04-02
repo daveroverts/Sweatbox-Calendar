@@ -106,6 +106,8 @@ class CalendarController extends Controller
             $students = Student::all();
             $sessionTypes = SessionType::all();
             $session->date = Carbon::createFromFormat('Y-m-d', $session->date)->format('d-m-Y');
+            $session->begin = Carbon::createFromFormat('H:i:s',$session->begin)->format('H:i');
+            $session->end = Carbon::createFromFormat('H:i:s',$session->end)->format('H:i');
             return view('calendar.edit', compact('session', 'id'))->with('students', $students)->with('sessionTypes', $sessionTypes);
         }
         else return view('/calendar');
