@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mentor;
 use App\Session;
 use App\SessionType;
 use App\Student;
@@ -64,7 +65,8 @@ class CalendarController extends Controller
                 ->withInput();
         }
         $session = new Session();
-        $session->mentor_id = Auth::id();
+        $currentMentor = Mentor::where('user_id', Auth::id())->first();
+        $session->mentor_id = $currentMentor->id;
         $session->student_id = $request->student;
         $session->date = Carbon::createFromFormat('d-m-Y',$request->date)->toDateString();
         $session->begin = $request->timeBegin;
