@@ -7,6 +7,8 @@
             @if(Auth::user()->isAdmin())
                 <a href="/student/create" class="btn btn-primary"><i class="fa fa-user-plus"></i> Add new Student</a>
                 <br><br>
+                <a href="#" class="btn btn-primary"><i class="fa fa-user-plus"></i> Re-add inactive student</a>
+                <br><br>
             @endif
             <table class="table table-hover">
                 <thead><tr>
