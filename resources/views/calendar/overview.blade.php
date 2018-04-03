@@ -39,7 +39,8 @@
                                         @csrf
                                     </form></td>
                             @else
-                                <td><form action="{{ route('calendar.start',$session->id) }}">
+                                <td>@if($session->mentor->user_id == Auth::id())
+                                    <form action="{{ route('calendar.start',$session->id) }}">
                                         @if(isset($session->actualEnd))
                                             <button class="btn btn-success"><i class="fa fa-play"></i> Restart Session</button>
                                         @else
@@ -57,7 +58,8 @@
                                         @method('DELETE')
                                         <button class="btn btn-danger"><i class="fa fa-calendar-minus-o"></i> Delete Session</button>
                                         @csrf
-                                    </form></td>
+                                    </form>
+                                    @endif</td>
                             @endif
                         </tr>
                         @empty
