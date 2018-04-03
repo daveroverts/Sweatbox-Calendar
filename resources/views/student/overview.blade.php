@@ -40,6 +40,15 @@
                                         @csrf
                                     </form>
                                 @endif
+                                @if(isset($student->currentMentor->user_id))
+                                    @if($student->currentMentor->user_id == Auth::id())
+                                        <br>
+                                            <form action="{{ route('calendar.create') }}">
+                                                <button class="btn btn-primary"><i class="fa fa-calendar-plus-o"></i> Add new Session</button>
+                                                @csrf
+                                            </form>
+                                        @endif
+                                @endif
                             </td>
                         </tr>
                         @empty
