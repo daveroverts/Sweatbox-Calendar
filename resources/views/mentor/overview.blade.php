@@ -3,12 +3,10 @@
 @section('content')
     <div class="container">
         @if (session('students'))
-            @php
-            $students = session('students');
-            @endphp
             <div class="alert alert-success">
                 Mentor rights have been removed
             </div>
+            @php($students = session('students'))
             @if(!$students->isEmpty())
                 <div class="alert alert-danger">
                     Warning, the following student(s) now have no mentor
