@@ -2,6 +2,19 @@
 
 @section('content')
     <div class="container">
+        @if (session('students'))
+            @php
+            $students = session('students');
+            @endphp
+            <div class="alert alert-danger">
+                Mentor rights have been removed, however, the following student(s) now have no mentor
+                <ul>
+                    @foreach($students as $student)
+                            <li>{{ $student->user->name }} [{{ $student->user->vatsim_id }}] - <a href="{{route('student.edit', $student->id)}}" target="_blank">Assign new mentor</a></li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         @if(Auth::check())
             <h2>Mentors Overview</h2>
             @if(Auth::user()->isAdmin())
