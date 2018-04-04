@@ -15,7 +15,7 @@ class AddForeignKeysToStudentsTable extends Migration
     {
         Schema::table('students', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('mentor_id')->references('id')->on('mentors');
+            $table->foreign('mentor_id')->references('id')->on('mentors')->onDelete('set null');
         });
     }
 
