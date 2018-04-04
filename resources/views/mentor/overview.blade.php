@@ -9,7 +9,7 @@
             @php($students = session('students'))
             @if(!$students->isEmpty())
                 <div class="alert alert-danger">
-                    Warning, the following student(s) now have no mentor
+                    Warning, the following student(s) now have no mentor (clicking <b>Assign new mentor</b> opens student edit page in a new tab.
                     <ul>
                         @foreach($students as $student)
                             <li>{{ $student->user->name }} [{{ $student->user->vatsim_id }}] - <a href="{{route('student.edit', $student->id)}}" target="_blank">Assign new mentor</a></li>
