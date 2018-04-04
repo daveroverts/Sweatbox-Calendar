@@ -6,14 +6,19 @@
             @php
             $students = session('students');
             @endphp
-            <div class="alert alert-danger">
-                Mentor rights have been removed, however, the following student(s) now have no mentor
-                <ul>
-                    @foreach($students as $student)
+            <div class="alert alert-success">
+                Mentor rights have been removed
+            </div>
+            @if(!$students->isEmpty())
+                <div class="alert alert-danger">
+                    Warning, the following student(s) now have no mentor
+                    <ul>
+                        @foreach($students as $student)
                             <li>{{ $student->user->name }} [{{ $student->user->vatsim_id }}] - <a href="{{route('student.edit', $student->id)}}" target="_blank">Assign new mentor</a></li>
-                    @endforeach
+                        @endforeach
                 </ul>
             </div>
+            @endif
         @endif
         @if(Auth::check())
             <h2>Mentors Overview</h2>
