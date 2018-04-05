@@ -141,6 +141,6 @@ class StudentController extends Controller
         //Then, delete student
         User::find($student->user_id)->delete();
         $student->delete();
-        return redirect('/student')->with('message','Student has been deleted from the system!');
+        return redirect('/student')->with('message','Student has been deleted from the system! If you ever want to re-add him/her in the system, press <strong class="alert-link">Re-add inactive student</strong>');
     }
 }
