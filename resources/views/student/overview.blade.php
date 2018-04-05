@@ -3,6 +3,14 @@
 @section('content')
         @if(Auth::check())
             <h2>Students Overview</h2>
+            @if (session('session'))
+                @component('layouts.alert.success')
+                    @slot('title')
+                        Message
+                    @endslot
+                    {{ session('session') }}
+                @endcomponent
+            @endif
             @if(Auth::user()->isAdmin())
                 <p><a href="/student/create" class="btn btn-primary"><i class="fa fa-user-plus"></i> Add new Student</a> <a href="#" class="btn btn-primary"><i class="fa fa-user-plus"></i> Re-add inactive student</a></p>
             @endif
