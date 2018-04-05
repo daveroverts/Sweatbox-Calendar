@@ -17,8 +17,10 @@
 <div id="app">
     @include('layouts.navbar')
     <main class="py-4">
-        @yield('content')
-        @include('layouts.footer')
+        <div class="container">
+            @yield('content')
+            @include('layouts.footer')
+        </div>
     </main>
 </div>
 

@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
         @if(Auth::check())
             <h2>Calendar Overview</h2>
             <a href="/calendar/create" class="btn btn-primary"><i class="fa fa-calendar-plus-o"></i> Add new Session</a>
@@ -68,5 +67,4 @@
                 </tbody>
             </table>
         @endif
-    </div>
 @endsection

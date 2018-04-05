@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
         @if (session('students'))
             <div class="alert alert-success">
                 Mentor rights have been removed
@@ -57,5 +56,4 @@
                 </tbody>
             </table>
         @endif
-    </div>
 @endsection

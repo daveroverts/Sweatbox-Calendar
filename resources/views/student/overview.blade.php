@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
         @if(Auth::check())
             <h2>Students Overview</h2>
             @if(Auth::user()->isAdmin())
@@ -58,5 +57,4 @@
                 </tbody>
             </table>
         @endif
-    </div>
 @endsection
