@@ -63,10 +63,9 @@ class MentorController extends Controller
     public function show($id)
     {
         if (Auth::check()){
-
             $mentor = Mentor::find($id);
             $students = Student::where('mentor_id',$id)->get();
-            return view('mentor.show',compact('mentor','students'));
+            return view('mentor.show',compact('mentor'),compact('students'));
         }
         else return redirect('/');
     }
