@@ -2,19 +2,25 @@
 
 @section('content')
         @if (session('students'))
-            <div class="alert alert-success">
-                Mentor rights have been removed
-            </div>
+            @component('layouts.alert.info')
+                @slot('title')
+                    Mentor removed
+                @endslot
+                Mentor rights have been removed!
+            @endcomponent
             @php($students = session('students'))
             @if(!$students->isEmpty())
-                <div class="alert alert-danger">
-                    Warning, the following student(s) now have no mentor (clicking <b>Assign new mentor</b> opens student edit page in a new tab.
-                    <ul>
-                        @foreach($students as $student)
-                            <li>{{ $student->user->name }} [{{ $student->user->vatsim_id }}] - <a href="{{route('student.edit', $student->id)}}" target="_blank">Assign new mentor</a></li>
-                        @endforeach
+            @component('layouts.alert.warning')
+                @slot('title')
+                    Student(s) lost mentor
+                @endslot
+                Warning, the following student(s) now have no mentor (clicking <b>Assign new mentor</b> opens student edit page in a new tab.
+                <ul>
+                    @foreach($students as $student)
+                        <li>{{ $student->user->name }} [{{ $student->user->vatsim_id }}] - <a href="{{route('student.edit', $student->id)}}" target="_blank" class="alert-link">Assign new mentor</a></li>
+                    @endforeach
                 </ul>
-            </div>
+            @endcomponent
             @endif
         @endif
         @if(Auth::check())
