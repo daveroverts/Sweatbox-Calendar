@@ -115,7 +115,7 @@ class MentorController extends Controller
         $mentor = Mentor::find($id);
         $students = Student::where('mentor_id',$id)->get();
         $mentor->delete();
-        return redirect('/mentor')->with('session', 'Mentor has been removed from the student list')->with('students',$students);
+        return redirect('/mentor')->with('message', 'Mentor has been removed from the student list')->with('students',$students);
 
     }
 }

@@ -72,7 +72,7 @@ class StudentController extends Controller
         $student->user_id = $user->id;
         $student->mentor_id = $request->mentor;
         $student->save();
-        return redirect('/student')->with('session', 'Student has been added into the system!');
+        return redirect('/student')->with('message', 'Student has been added into the system!');
     }
 
     /**
@@ -123,7 +123,7 @@ class StudentController extends Controller
         $user->rating_id = $request->rating;
         $user->save();
 
-        return redirect('/student')->with('session', 'Student has been updated!');
+        return redirect('/student')->with('message', 'Student has been updated!');
     }
 
     /**
@@ -141,6 +141,6 @@ class StudentController extends Controller
         //Then, delete student
         User::find($student->user_id)->delete();
         $student->delete();
-        return redirect('/student')->with('session','Student has been deleted from the system!');
+        return redirect('/student')->with('message','Student has been deleted from the system!');
     }
 }

@@ -3,12 +3,12 @@
 @section('content')
         @if(Auth::check())
             <h2>Students Overview</h2>
-            @if (session('session'))
+            @if (session('message'))
                 @component('layouts.alert.success')
                     @slot('title')
                         Message
                     @endslot
-                    {{ session('session') }}
+                    {{ session('message') }}
                 @endcomponent
             @endif
             @if(Auth::user()->isAdmin())
