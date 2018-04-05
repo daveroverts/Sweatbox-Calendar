@@ -49,9 +49,19 @@
                         </tr>
                         @empty
                             @if(Auth::user()->isAdmin())
-                                <p>No students are in the system, consider adding one, using the button above</p>
+                                @component('layouts.alert.warning')
+                                    @slot('title')
+                                        No students found
+                                    @endslot
+                                    No students are in the system, consider adding one, using the button above
+                                @endcomponent
                                 @else
-                                <p>No students are in the system, just wait till a admin adds one.</p>
+                                @component('layouts.alert.info')
+                                    @slot('title')
+                                        No students found
+                                    @endslot
+                                    No students are in the system, just wait till a admin adds one.
+                                @endcomponent
                                 @endif
                         @endforelse
                 </tbody>
