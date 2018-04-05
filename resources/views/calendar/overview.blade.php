@@ -3,6 +3,14 @@
 @section('content')
         @if(Auth::check())
             <h2>Calendar Overview</h2>
+            @if (session('message'))
+                @component('layouts.alert.success')
+                    @slot('title')
+                        Message
+                    @endslot
+                    {{ session('message') }}
+                @endcomponent
+            @endif
             <a href="/calendar/create" class="btn btn-primary"><i class="fa fa-calendar-plus-o"></i> Add new Session</a>
             <br><br>
             <table class="table table-hover">

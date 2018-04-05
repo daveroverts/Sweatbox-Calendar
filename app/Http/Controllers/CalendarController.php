@@ -74,7 +74,7 @@ class CalendarController extends Controller
         $session->description = $request->description;
         $session->typeSession_id = $request->typeSession;
         $session->save();
-        return redirect('/calendar');
+        return redirect('/calendar')->with('message', 'Session created!');
     }
 
     /**
@@ -130,7 +130,7 @@ class CalendarController extends Controller
         $session->typeSession_id = $request->typeSession;
         $session->description = $request->description;
         $session->save();
-        return redirect('/calendar');
+        return redirect('/calendar')->with('message','Session has been updated!');
     }
 
     /**
@@ -142,19 +142,19 @@ class CalendarController extends Controller
     public function destroy($id)
     {
         Session::find($id)->delete();
-        return redirect('/calendar');
+        return redirect('/calendar')->with('message','Session has been deleted!');
     }
 
     public function startSession($id){
         DB::table('sessions')
             ->where('id', $id)
             ->update(['inProgress' => 1, 'actualBegin' => now()]);
-        return redirect('/calendar');
+        return redirect('/calendar')->with('message','Session has been started! Don\'t forget to stop the session when you are done');
     }
     public function stopSession($id){
         DB::table('sessions')
             ->where('id', $id)
             ->update(['inProgress' => 0, 'actualEnd' => now()]);
-        return redirect('/calendar');
+        return redirect('/calendar')->with('message','Session has been stopped! If you did this by mistake, you can restart the session');
     }
 }
