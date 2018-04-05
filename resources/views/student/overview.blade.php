@@ -26,7 +26,11 @@
                 </thead>
                 <tbody>
                 @forelse($students as $student)
+                    @if(isset($student->currentMentor->user_id) && $student->currentMentor->user_id == Auth::id())
                         <tr>
+                    @else
+                        <tr class="table-secondary">
+                    @endif
                             <td><a href="https://stats.vatsim.net/search_id.php?id={{ $student->user->vatsim_id }}">{{ $student->user->vatsim_id }}</a></td>
                             <td>{{ $student->user->name }}</td>
                             <td><a href="mailto:{{ $student->user->email }}">{{ $student->user->email }}</a></td>
