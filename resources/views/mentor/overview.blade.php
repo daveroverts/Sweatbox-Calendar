@@ -6,7 +6,7 @@
                 @slot('title')
                     Mentor removed
                 @endslot
-                Mentor rights have been removed!
+                {{ session('message') }}
             @endcomponent
             @php($students = session('students'))
             @if(!$students->isEmpty())
