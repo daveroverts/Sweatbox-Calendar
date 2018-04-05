@@ -20,7 +20,7 @@
         @if(Auth::check())
             <h2>Mentors Overview</h2>
             @if(Auth::user()->isAdmin())
-                <a href="/mentor/create" class="btn btn-primary"><i class="fa fa-user-plus"></i> Add new Mentor</a>
+                <a href="{{ route('mentor.create') }}" class="btn btn-primary"><i class="fa fa-user-plus"></i> Add new Mentor</a>
             @endif
             <br><br>
             <table class="table table-hover">
