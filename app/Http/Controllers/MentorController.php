@@ -51,7 +51,7 @@ class MentorController extends Controller
         $mentor = new Mentor();
         $mentor->user_id = $request->student;
         $mentor->save();
-        return redirect('/mentor');
+        return redirect('/mentor')->with('message','Student is now also a '.$mentor->action->name);
     }
 
     /**
@@ -101,7 +101,7 @@ class MentorController extends Controller
         }
         else $user->isAdmin = 0;
         $user->save();
-        return redirect('/mentor');
+        return redirect('/mentor')->with('message', 'Mentor has been edited!');
     }
 
     /**
@@ -115,7 +115,7 @@ class MentorController extends Controller
         $mentor = Mentor::find($id);
         $students = Student::where('mentor_id',$id)->get();
         $mentor->delete();
-        return redirect('/mentor')->with('message', 'Mentor has been removed from the student list')->with('students',$students);
+        return redirect('/mentor')->with('message', 'Mentor has been removed from the mentor list')->with('students',$students);
 
     }
 }
