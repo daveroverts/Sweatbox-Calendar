@@ -24,7 +24,6 @@
             @endcomponent
             @endif
         @endif
-        @if(Auth::check())
             <h2>Mentors Overview</h2>
             @if(Auth::user()->isAdmin())
                 <a href="{{ route('mentor.create') }}" class="btn btn-primary"><i class="fa fa-user-plus"></i> Add new Mentor</a>
@@ -62,5 +61,4 @@
                         @endforelse
                 </tbody>
             </table>
-        @endif
 @endsection

@@ -21,12 +21,15 @@ class CalendarController extends Controller
      */
     public function index()
     {
-        $sessions = Session::orderBy('inProgress','DESC')
-            ->orderBy('actualEnd','ASC')
-            ->orderBy('date', 'ASC')
-            ->orderBy('begin')
-            ->get();
-        return view('calendar.overview', compact('sessions'));
+        if (Auth::check()){
+            $sessions = Session::orderBy('inProgress','DESC')
+                ->orderBy('actualEnd','ASC')
+                ->orderBy('date', 'ASC')
+                ->orderBy('begin')
+                ->get();
+            return view('calendar.overview', compact('sessions'));
+        }
+        else return redirect('/');
     }
 
     /**

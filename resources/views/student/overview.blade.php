@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-        @if(Auth::check())
             <h2>Students Overview</h2>
             @if (session('message'))
                 @component('layouts.alert.success')
@@ -76,5 +75,4 @@
                         @endforelse
                 </tbody>
             </table>
-        @endif
 @endsection
