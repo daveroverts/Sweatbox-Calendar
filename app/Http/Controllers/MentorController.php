@@ -60,9 +60,15 @@ class MentorController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show($id)
     {
-        //
+        if (Auth::check()){
+
+            $mentor = Mentor::find($id);
+            $students = Student::where('mentor_id',$id)->get();
+            return view('mentor.show',compact('mentor','students'));
+        }
+        else return redirect('/');
     }
 
     /**

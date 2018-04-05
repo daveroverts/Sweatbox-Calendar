@@ -36,7 +36,7 @@
                     <th>E-Mail</th>
                     <th>Rating</th>
                     <th>Type</th>
-                    <th colspan="3">Actions</th>
+                    <th colspan="4">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -54,6 +54,11 @@
                                 </form>
                                         @csrf
                             @endif
+                            </td>
+                            <td>
+                                    <form action="{{ route('mentor.show',$mentor->id) }}">
+                                        <button class="btn btn-success"><i class="fa fa-edit"></i> Show Students</button>
+                                    </form>
                             </td>
                         </tr>
                         @empty
