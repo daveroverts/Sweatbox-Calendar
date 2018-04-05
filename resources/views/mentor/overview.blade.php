@@ -14,12 +14,13 @@
                 @slot('title')
                     Student(s) lost mentor
                 @endslot
-                Warning, the following student(s) now have no mentor (clicking <b>Assign new mentor</b> opens student edit page in a new tab.
+                Warning, the mentor that was just removed, still had one or more students! The following student(s) lost their mentor:
                 <ul>
                     @foreach($students as $student)
                         <li>{{ $student->user->name }} [{{ $student->user->vatsim_id }}] - <a href="{{route('student.edit', $student->id)}}" target="_blank" class="alert-link">Assign new mentor</a></li>
                     @endforeach
                 </ul>
+                Clicking <strong class="alert-link">Assign new mentor</strong> opens student edit page in a new tab.
             @endcomponent
             @endif
         @endif
