@@ -12,8 +12,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-
-                        <p>Welcome back, {{Auth::user()->name}}!</p>
+                            Welcome back, {{Auth::user()->name}}!
                     </div>
                 </div>
             </div>
