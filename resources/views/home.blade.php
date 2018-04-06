@@ -13,9 +13,7 @@
                             </div>
                         @endif
 
-                        <a href="calendar" class="btn btn-primary" role="button"><i class="fa fa-calendar"></i> Calendar Overview</a>
-                        <a href="student" class="btn btn-primary" role="button"><i class="fa fa-users"></i> Students Overview</a>
-                        <a href="mentor" class="btn btn-primary" role="button"><i class="fa fa-users"></i> Mentors Overview</a>
+                        <p>Welcome back, {{Auth::user()->name}}!</p>
                     </div>
                 </div>
             </div>
