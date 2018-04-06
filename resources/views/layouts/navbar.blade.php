@@ -10,8 +10,15 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-                Current date/time: <?php echo $carbon::now('UTC')->format('l d-m-Y Hi').'z' ?>
+            <ul class="navbar-nav ml-auto">
+                <li>Current date/time: <?php echo $carbon::now('UTC')->format('l d-m-Y Hi').'z' ?></li>
+            </ul>
+
+            <!-- Middle Side of Navbar -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item {{ Request::is('calendar*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('calendar.index') }}">Calendar</a></li>
+                <li class="nav-item {{ Request::is('student*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('student.index') }}">Students</a></li>
+                <li class="nav-item {{ Request::is('mentor*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('mentor.index') }}">Mentors</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
