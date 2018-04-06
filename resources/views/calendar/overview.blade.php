@@ -55,7 +55,7 @@
                                         @csrf
                                     </form></td>
 
-                                <td><form action="/calendar/{{$session->id}}/edit">
+                                <td><form action="{{ route('calendar.edit',$id) }}">
                                         <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit Session</button>
                                         @csrf
                                     </form></td>
