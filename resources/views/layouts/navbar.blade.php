@@ -21,7 +21,7 @@
             
             <!-- Middle Side of Navbar -->
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">Current date/time: <b>{{ $carbon::now('UTC')->format('l d-m-Y Hi') }}z</b></li>
+                <li class="nav-item"><b>{{ $carbon::now('UTC')->format('l d-m-Y Hi') }}z</b></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
