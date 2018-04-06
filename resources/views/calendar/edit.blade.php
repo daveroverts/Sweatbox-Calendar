@@ -24,7 +24,7 @@
                                 <label for="student" class="col-md-4 col-form-label text-md-right"><i class="fa fa-user"></i> Student</label>
 
                                 <div class="col-md-6">
-                                    <select class="custom-select" name="student" autofocus>
+                                    <select class="custom-select" name="student" autofocus title="Student">
                                         @foreach($students as $student)
                                             <option name="student" value="{{$student->id}}" {{ $student->id == $session->student_id ? 'selected="selected"' : '' }}>{{ $student->user->name }}</option>
                                         @endforeach
@@ -88,7 +88,7 @@
                                 <label for="typeSession" class="col-md-4 col-form-label text-md-right"><i class="fa fa-list-ul"></i> Type session</label>
 
                                 <div class="col-md-6">
-                                    <select class="custom-select" name="typeSession">
+                                    <select class="custom-select" name="typeSession" title="Type session">
                                         @foreach($sessionTypes as $type)
                                             <option name="typeSession" value="{{$type->id}}" {{ $type->id == $session->typeSession_id ? 'selected="selected"' : '' }}>{{ $type->name }}</option>
                                         @endforeach

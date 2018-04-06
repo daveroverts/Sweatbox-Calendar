@@ -79,12 +79,12 @@
                                 </div>
                             </div>
 
-                            {{--Rating--}}
+                            {{--Type mentor--}}
                             <div class="form-group row">
                                 <label for="typeMentor" class="col-md-4 col-form-label text-md-right"><i class="fa fa-list-ul"></i> Type</label>
 
                                 <div class="col-md-6">
-                                    <select class="custom-select" name="typeMentor">
+                                    <select class="custom-select" name="typeMentor" title="Type">
                                         @foreach($actions as $action)
                                             <option name="typeMentor" value="{{$action->id}}" {{ $mentor->action->id == $action->id ? 'selected="selected"' : '' }}>{{ $action->name }}</option>
                                         @endforeach

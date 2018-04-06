@@ -69,7 +69,7 @@
                                 <label for="rating" class="col-md-4 col-form-label text-md-right"><i class="fa fa-list-ul"></i> Rating</label>
 
                                 <div class="col-md-6">
-                                    <select class="custom-select" name="rating">
+                                    <select class="custom-select" name="rating" title="Rating">
                                         @foreach($ratings as $rating)
                                             <option name="rating" value="{{$rating->id}}" {{ $student->user->rating->id == $rating->id ? 'selected="selected"' : '' }}>{{ $rating->longName }} [{{ $rating->shortName }}]</option>
                                         @endforeach
@@ -90,7 +90,7 @@
                                 <label for="mentor" class="col-md-4 col-form-label text-md-right"><i class="fa fa-list-ul"></i> Mentor</label>
 
                                 <div class="col-md-6">
-                                    <select class="custom-select" name="mentor">
+                                    <select class="custom-select" name="mentor" title="Mentor">
                                         <option name="mentor" value="">None</option>
                                         @foreach($mentors as $mentor)
                                             <option name="mentor" value="{{$mentor->id}}" {{ isset($student->currentMentor->id) == $mentor->id ? 'selected="selected"' : '' }}>{{ $mentor->user->name }} | {{ $mentor->action->name }}</option>
