@@ -12,6 +12,7 @@
             <!-- Left Side Of Navbar -->
         @if(Auth::check())
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item {{ Request::is('/') ? 'active' : '' }}"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
                     <li class="nav-item {{ Request::is('calendar*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('calendar.index') }}">Calendar</a></li>
                     <li class="nav-item {{ Request::is('student*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('student.index') }}">Students</a></li>
                     <li class="nav-item {{ Request::is('mentor*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('mentor.index') }}">Mentors</a></li>
