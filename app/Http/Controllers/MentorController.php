@@ -51,7 +51,9 @@ class MentorController extends Controller
         $mentor = new Mentor();
         $mentor->user_id = $request->student;
         $mentor->save();
-        return redirect('/mentor')->with('message','Student is now also a '.$mentor->action->name);
+        
+        $mentorAction = Mentor::find($mentor->id)->action->name;
+        return redirect('/mentor')->with('message','Student is now also a '.$mentorAction);
     }
 
     /**
