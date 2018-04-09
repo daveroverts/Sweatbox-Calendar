@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mentor;
-use App\Session;
+use App\MentorSession;
 use App\SessionType;
 use App\Student;
 Use Auth;
@@ -22,7 +22,7 @@ class CalendarController extends Controller
     public function index()
     {
         if (Auth::check()){
-            $sessions = Session::orderBy('inProgress','DESC')
+            $sessions = MentorSession::orderBy('inProgress','DESC')
                 ->orderBy('actualEnd','ASC')
                 ->orderBy('date', 'ASC')
                 ->orderBy('begin')
@@ -67,7 +67,7 @@ class CalendarController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-        $session = new Session();
+        $session = new MentorSession();
         $currentMentor = Mentor::where('user_id', Auth::id())->first();
         $session->mentor_id = $currentMentor->id;
         $session->student_id = $request->student;
@@ -77,16 +77,16 @@ class CalendarController extends Controller
         $session->description = $request->description;
         $session->typeSession_id = $request->typeSession;
         $session->save();
-        return redirect('/calendar')->with('message', 'Session created!');
+        return redirect('/calendar')->with('message', 'MentorSession created!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Session  $session
+     * @param  \App\MentorSession  $session
      * @return \Illuminate\Http\Response
      */
-    public function show(Session $session)
+    public function show(MentorSession $session)
     {
         if (Auth::check() && Auth::user()->id == $session->mentor){
             return view('edit', compact('session'));
@@ -99,13 +99,13 @@ class CalendarController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Session  $session
+     * @param  \App\MentorSession  $session
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         if (Auth::check()){
-            $session = Session::find($id);
+            $session = MentorSession::find($id);
             $students = Student::all();
             $sessionTypes = SessionType::all();
             $session->date = Carbon::createFromFormat('Y-m-d', $session->date)->format('d-m-Y');
@@ -120,12 +120,12 @@ class CalendarController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Session  $session
+     * @param  \App\MentorSession  $session
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $session = Session::find($id);
+        $session = MentorSession::find($id);
         $session->student_id = $request->student;
         $session->date = Carbon::createFromFormat('d-m-Y',$request->date)->toDateString();
         $session->begin = $request->timeBegin;
@@ -133,31 +133,31 @@ class CalendarController extends Controller
         $session->typeSession_id = $request->typeSession;
         $session->description = $request->description;
         $session->save();
-        return redirect('/calendar')->with('message','Session has been updated!');
+        return redirect('/calendar')->with('message','MentorSession has been updated!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Session  $session
+     * @param  \App\MentorSession  $session
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Session::find($id)->delete();
-        return redirect('/calendar')->with('message','Session has been deleted!');
+        MentorSession::find($id)->delete();
+        return redirect('/calendar')->with('message','MentorSession has been deleted!');
     }
 
     public function startSession($id){
         DB::table('sessions')
             ->where('id', $id)
             ->update(['inProgress' => 1, 'actualBegin' => now()]);
-        return redirect('/calendar')->with('message','Session has been started! Don\'t forget to stop the session when you are done');
+        return redirect('/calendar')->with('message','MentorSession has been started! Don\'t forget to stop the session when you are done');
     }
     public function stopSession($id){
         DB::table('sessions')
             ->where('id', $id)
             ->update(['inProgress' => 0, 'actualEnd' => now()]);
-        return redirect('/calendar')->with('message','Session has been stopped! If you did this by mistake, you can restart the session');
+        return redirect('/calendar')->with('message','MentorSession has been stopped! If you did this by mistake, you can restart the session');
     }
 }

@@ -4,8 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Session extends Model
+class MentorSession extends Model
 {
+    protected $table = 'mentor_sessions';
+
     public function mentor(){
         return $this->belongsTo(Mentor::class);
     }

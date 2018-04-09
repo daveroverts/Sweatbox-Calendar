@@ -10,7 +10,7 @@ class SessionType extends Model
     protected $table = 'session_types';
 
     public function type(){
-        return $this->belongsTo('App\Session', 'id');
+        return $this->belongsTo('App\MentorSession', 'id');
     }
 
     /**

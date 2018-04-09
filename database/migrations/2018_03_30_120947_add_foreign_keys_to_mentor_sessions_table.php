@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignKeysToSessionsTable extends Migration
+class AddForeignKeysToMentorSessionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddForeignKeysToSessionsTable extends Migration
      */
     public function up()
     {
-        Schema::table('sessions', function (Blueprint $table) {
+        Schema::table('mentor_sessions', function (Blueprint $table) {
             $table->foreign('mentor_id')->references('id')->on('mentors');
             $table->foreign('student_id')->references('id')->on('students');
             $table->foreign('typeSession_id')->references('id')->on('session_types');
@@ -27,7 +27,7 @@ class AddForeignKeysToSessionsTable extends Migration
      */
     public function down()
     {
-        Schema::table('sessions', function (Blueprint $table) {
+        Schema::table('mentor_sessions', function (Blueprint $table) {
             $table->dropForeign(['mentor_id']);
             $table->dropForeign(['student_id']);
             $table->dropForeign(['typeSession_id']);
