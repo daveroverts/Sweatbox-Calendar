@@ -33,7 +33,7 @@
                             <td><a href="https://stats.vatsim.net/search_id.php?id={{ $student->user->vatsim_id }}">{{ $student->user->vatsim_id }}</a></td>
                             <td>{{ $student->user->name }}</td>
                             <td><a href="mailto:{{ $student->user->email }}">{{ $student->user->email }}</a></td>
-                            <td>@if(isset($student->currentMentor->user->name))
+                            <td>@if($student->currentMentor)
                                     {{ $student->currentMentor->user->name }}
                                 @else
                                     -
