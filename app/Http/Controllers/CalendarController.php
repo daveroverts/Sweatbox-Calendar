@@ -57,16 +57,11 @@ class CalendarController extends Controller
      */
     public function store(Request $request)
     {
-            $validator = Validator::make($request->all(), [
+            $validatedData = $request->validate([
                 'date' => 'bail|required|date:after_or_equal:today',
                 'timeBegin' => 'required',
                 'timeEnd' => 'required',
             ]);
-        if ($validator->fails()) {
-            return redirect('calendar/create')
-                ->withErrors($validator)
-                ->withInput();
-        }
         $session = new MentorSession();
         $currentMentor = Mentor::where('user_id', Auth::id())->first();
         $session->mentor_id = $currentMentor->id;
