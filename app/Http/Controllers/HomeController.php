@@ -41,7 +41,7 @@ class HomeController extends Controller
             return redirect()->back()->with("error", "New password cannot be the same as your current password. Please choose a different password.");
         }
 
-        $validatedData = $request->validate([
+        $request->validate([
             'oldPassword'   => 'required',
             'newPassword'   => 'required|string|min:6|confirmed',
         ]);

@@ -49,16 +49,11 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'vatsim_id' => 'bail|required|numeric|digits_between:6,7|unique:users',
             'name' => 'required|string',
             'email' => 'required|email|max:255|unique:users',
         ]);
-        if ($validator->fails()) {
-            return redirect('student/create')
-                ->withErrors($validator)
-                ->withInput();
-        }
         //First create the user
         $user = new User();
         $user->name = $request->name;

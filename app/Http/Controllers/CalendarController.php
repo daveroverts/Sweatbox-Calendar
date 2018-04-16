@@ -57,7 +57,7 @@ class CalendarController extends Controller
      */
     public function store(Request $request)
     {
-            $validatedData = $request->validate([
+            $request->validate([
                 'date' => 'bail|required|date:after_or_equal:today',
                 'timeBegin' => 'required',
                 'timeEnd' => 'required',
