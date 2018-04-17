@@ -33,11 +33,7 @@
                             <td><a href="https://stats.vatsim.net/search_id.php?id={{ $student->user->vatsim_id }}">{{ $student->user->vatsim_id }}</a></td>
                             <td>{{ $student->user->name }}</td>
                             <td><a href="mailto:{{ $student->user->email }}">{{ $student->user->email }}</a></td>
-                            <td>@if($student->currentMentor)
-                                    {{ $student->currentMentor->user->name }}
-                                @else
-                                    -
-                                @endif</td>
+                            <td>{{ $student->currentMentor ? $student->currentMentor->user->name : "-" }}</td>
                             <td>{{ $student->user->rating->longName }} [{{ $student->user->rating->shortName }}]</td>
 
                             <td>
