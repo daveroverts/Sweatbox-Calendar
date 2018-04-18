@@ -72,7 +72,7 @@ class CalendarController extends Controller
         $session->description = $request->description;
         $session->typeSession_id = $request->typeSession;
         $session->save();
-        return redirect('/calendar')->with('message', 'MentorSession created!');
+        return redirect('/calendar')->with('message', 'Mentoring session created!');
     }
 
     /**
@@ -128,7 +128,7 @@ class CalendarController extends Controller
         $session->typeSession_id = $request->typeSession;
         $session->description = $request->description;
         $session->save();
-        return redirect('/calendar')->with('message','MentorSession has been updated!');
+        return redirect('/calendar')->with('message','Mentoring session has been updated!');
     }
 
     /**
@@ -140,19 +140,19 @@ class CalendarController extends Controller
     public function destroy($id)
     {
         MentorSession::find($id)->delete();
-        return redirect('/calendar')->with('message','MentorSession has been deleted!');
+        return redirect('/calendar')->with('message','Mentoring session has been deleted!');
     }
 
     public function startSession($id){
         DB::table('sessions')
             ->where('id', $id)
             ->update(['inProgress' => 1, 'actualBegin' => now()]);
-        return redirect('/calendar')->with('message','MentorSession has been started! Don\'t forget to stop the session when you are done');
+        return redirect('/calendar')->with('message','Mentoring session has been started! Don\'t forget to stop the session when you are done');
     }
     public function stopSession($id){
         DB::table('sessions')
             ->where('id', $id)
             ->update(['inProgress' => 0, 'actualEnd' => now()]);
-        return redirect('/calendar')->with('message','MentorSession has been stopped! If you did this by mistake, you can restart the session');
+        return redirect('/calendar')->with('message','Mentoring session has been stopped! If you did this by mistake, you can restart the session');
     }
 }
