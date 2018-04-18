@@ -139,6 +139,24 @@ class StudentController extends Controller
         //Then, delete student
         User::find($student->user_id)->delete();
         $student->delete();
-        return redirect('/student')->with('message','Student has been deleted from the system! If you ever want to re-add him/her in the system, press <strong class="alert-link">Re-add inactive student</strong>');
+        return redirect('/student')->with('message','Student has been deleted from the system! If you ever want to re-add him/her in the system, press \'Re-add inactive student\'');
+    }
+
+    public function showRestoreForm(){
+        if (Auth::check() && Auth::user()->isAdmin()){
+            $students = User::onlyTrashed()->get();
+            return view('student.restore', compact('students'));
+        }
+        else return redirect('/');
+    }
+
+    public function restore(Request $request){
+        User::onlyTrashed()
+            ->where('id', $request->student)
+            ->restore();
+        Student::onlyTrashed()
+            ->where('user_id', $request->student)
+            ->restore();
+        return redirect('/student')->with('message', 'Student has now been marked as active again');
     }
 }

@@ -21,6 +21,8 @@ Route::get('/calendar/startSession/{session}','CalendarController@startSession')
 Route::get('/calendar/stopSession/{session}','CalendarController@stopSession')->name('calendar.stop');
 
 //Student
+Route::get('/student/restore', 'StudentController@showRestoreForm')->name('student.restore');
+Route::post('/student/restore', 'StudentController@restore')->name('student.restore');
 Route::resource('/student', 'StudentController');
 
 //Change password
