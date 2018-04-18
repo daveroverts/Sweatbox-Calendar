@@ -55,17 +55,20 @@ class StudentController extends Controller
             'email' => 'required|email|max:255|unique:users',
         ]);
         //First create the user
-        $user = new User();
-        $user->name = $request->name;
-        $user->vatsim_id = $request->vatsim_id;
-        $user->email = $request->email;
-        $user->rating_id = $request->rating;
+        $user = User::create([
+            'name' => $request->name,
+            'vatsim_id' => $request->vatsim_id,
+            'email' => $request->email,
+            'rating_id' => $request->rating,
+        ]);
         $user->save();
 
+
         //When User has been saved, create the student.
-        $student = new Student();
-        $student->user_id = $user->id;
-        $student->mentor_id = $request->mentor;
+        $student = Student::create([
+            'user_id' => $user->id,
+            'mentor_id' => $request->mentor,
+        ]);
         $student->save();
         return redirect('/student')->with('message', 'Student has been added into the system!');
     }
