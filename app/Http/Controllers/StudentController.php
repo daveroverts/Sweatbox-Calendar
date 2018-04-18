@@ -136,6 +136,8 @@ class StudentController extends Controller
         $student = Student::find($id);
         $student->mentor_id = null;
         $student->save();
+        //If student was also a mentor, remove him from the mentors table
+        Mentor::where('user_id',$student->user_id)->delete();
         //Then, delete student
         User::find($student->user_id)->delete();
         $student->delete();
