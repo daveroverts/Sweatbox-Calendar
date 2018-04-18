@@ -16,7 +16,7 @@
                                 <div class="col-md-6">
                                     <select class="custom-select" name="student" title="Student">
                                         @foreach($students as $student)
-                                            <option name="student" value="{{$student->id}}">{{ $student->name }} [{{ $student->rating->shortName }}]</option>
+                                            <option name="student" value="{{$student->id}}">{{ $student->name }} [{{ $student->rating->shortName }}] | Deleted: {{ $student->deleted_at }}</option>
                                         @endforeach
                                     </select>
 
